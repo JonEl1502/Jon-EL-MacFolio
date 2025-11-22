@@ -13,6 +13,10 @@ body {
     background-position: center;
 }
 
+.font-georama {
+    font-variation-settings: "wght" var(--wght);
+}
+
 @theme {
     --font-georama: "Georama", sans-serif;
     --font-roboto: "Roboto Mono", monospace;
@@ -394,3 +398,4 @@ body {
         }
     }
 }
+
