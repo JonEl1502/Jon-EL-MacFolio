@@ -22,8 +22,8 @@ const renderText = (text, className, baseWeight = 400) => {
 
 // Setup text hover effect
 const setupTextHover = (container, type) => {
-    // Check if container exists
-    if (!container) return;
+    // Check if container exists or return empty function
+    if (!container) return ()=> {};
 
     // Get all the letters
     const letters = container.querySelectorAll('span');
