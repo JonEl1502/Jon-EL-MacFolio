@@ -4,7 +4,11 @@ import {useGSAP} from '@gsap/react'
 
 // Text hover effect
 const FONT_WEIGHTS = {
-    subtitle: {min: 400, max: 400, default: 100},
+    subtitle: {min: 100, max: 400, default: 100},
+    title: {min: 400, max: 900, default: 400},
+}
+const FONT_WEIGHTS = {
+    subtitle: {min: 100, max: 100, default: 100},
     title: {min: 400, max: 900, default: 400},
 }
 

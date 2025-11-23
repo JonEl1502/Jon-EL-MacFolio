@@ -6,15 +6,16 @@ import gsap from "gsap";
 
 // Internal imports
 import {dockApps} from "#constants";
+import useWindowStore from "#store/window.js";
 
 
 const Dock = () => {
+    const {openWindow, closeWindow, windows} = useWindowStore();
     const dockRef = React.useRef(null)
 
     useGSAP(() => {
         const dock = dockRef.current;
         if (!dock) return;
-
 
         const icons = dock.querySelectorAll(".dock-icon");
 
@@ -31,13 +32,13 @@ const Dock = () => {
                     scale: 1 + 0.5 * intensity,
                     y: -15 * intensity,
                     duration: 0.2,
-                    ease:"power1.out"
+                    ease: "power1.out"
                 })
             });
         });
 
         const handleMouseMove = (e) => {
-            const {left} =dock.getBoundingClientRect();
+            const {left} = dock.getBoundingClientRect();
             animateIcons(e.clientX - left);
         };
 
@@ -63,11 +64,19 @@ const Dock = () => {
         }
 
         // return empty dependencies array so as to start the animation only at the first render
-    },[]);
+    }, []);
 
     // Toggle app
     const toggleApp = (app) => {
+        if (!app.canOpen) return;
 
+        const window = windows[app.id];
+
+        if (window.isOpen) {
+            closeWindow(app.id);
+        } else {
+            openWindow(app.id);
+        }
     }
 
     // Render
