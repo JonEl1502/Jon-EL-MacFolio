@@ -10,7 +10,7 @@ import {useGSAP} from "@gsap/react";
 const WindowWrapper = (Component, windowKey) => {
     const Wrapped = (props) => {
         const {focusWindow, windows} = useWindowStore();
-        const {isOpen, zIndex} = windows[windowKey];
+        const {isOpen, zIndex, data} = windows[windowKey];
         const ref = useRef(null);
 
         // GSAP Hook for animation
@@ -51,7 +51,7 @@ const WindowWrapper = (Component, windowKey) => {
         }, [isOpen]);
 
         return <section id={windowKey} ref={ref} style={{zIndex: zIndex}} className="absolute">
-            <Component {...props} />
+            <Component {...props} {...data} />
         </section>
     };
 

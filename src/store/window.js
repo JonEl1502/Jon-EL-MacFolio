@@ -13,8 +13,11 @@ const useWindowStore = create(
         openWindow: (windowKey, data = null) =>
             set((state) => {
                 if (!state.windows[windowKey]) {
-                    console.error(`Window key "${windowKey}" does not exist`);
-                    return;
+                    state.windows[windowKey] = {
+                        isOpen: false,
+                        zIndex: INITIAL_Z_INDEX,
+                        data: null,
+                    };
                 }
                 const win = state.windows[windowKey];
                 if (win.isOpen) return;
