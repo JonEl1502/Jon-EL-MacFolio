@@ -42,12 +42,18 @@ const Finder = () => {
         if (item.fileType === "pdf") return openWindow("resume");
         if (item.fileType === "txt") return openWindow("txtfile", item);
         if (item.kind === "folder") return setActiveLocation(item);
-        if (["fig", "url"].includes(item.fileType)&& item.href) return window.open(item.href, "_blank");
-        // check image
+        if (["fig", "url"].includes(item.fileType) && item.href) return window.open(item.href, "_blank");
         if (item.fileType === "img" && item.imageUrl) {
-            return openWindow("imgfile", {
+            const allImages = activeLocation?.children?.filter(child => child.fileType === "img").map(img => ({
+                src: img.imageUrl,
+                title: img.name
+            })) || [];
+            const currentIndex = allImages.findIndex(img => img.src === item.imageUrl);
+            openWindow("imgfile", {
                 src: item.imageUrl,
-                title: item.name
+                title: item.name,
+                images: allImages,
+                currentIndex
             });
         }
     };

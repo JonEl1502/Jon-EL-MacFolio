@@ -50,8 +50,14 @@ const WindowWrapper = (Component, windowKey) => {
             el.style.display = isOpen ? "block" : "none"
         }, [isOpen]);
 
-        return <section id={windowKey} ref={ref} style={{zIndex: zIndex}} className="absolute">
-            <Component {...props} {...data} />
+        const getWindowSize = () => {
+            if (windowKey === 'imgfile') return 'w-[800px] h-[600px]';
+            if (windowKey === 'finder') return 'w-[900px] h-[600px]';
+            return '';
+        };
+        
+        return <section id={windowKey} ref={ref} style={{zIndex: zIndex}} className={`absolute ${getWindowSize()}`}>
+            <Component {...props} {...(data || {})} />
         </section>
     };
 
