@@ -44,16 +44,10 @@ const Finder = () => {
         if (item.kind === "folder") return setActiveLocation(item);
         if (["fig", "url"].includes(item.fileType) && item.href) return window.open(item.href, "_blank");
         if (item.fileType === "img" && item.imageUrl) {
-            const allImages = activeLocation?.children?.filter(child => child.fileType === "img").map(img => ({
-                src: img.imageUrl,
-                title: img.name
-            })) || [];
-            const currentIndex = allImages.findIndex(img => img.src === item.imageUrl);
-            openWindow("imgfile", {
+            const uniqueWindowKey = `imgfile_${item.id}_${Date.now()}`;
+            openWindow(uniqueWindowKey, {
                 src: item.imageUrl,
-                title: item.name,
-                images: allImages,
-                currentIndex
+                title: item.name
             });
         }
     };

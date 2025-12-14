@@ -34,11 +34,15 @@ const useWindowStore = create(
         //
         closeWindow: (windowKey) =>
             set((state) => {
-                if (state.windows[windowKey]) {
-                    const win = state.windows[windowKey];
-                    win.isOpen = false;
-                    win.zIndex = INITIAL_Z_INDEX;
-                    win.data = null;
+                try {
+                    if (state.windows[windowKey]) {
+                        const win = state.windows[windowKey];
+                        win.isOpen = false;
+                        win.zIndex = INITIAL_Z_INDEX;
+                        win.data = null;
+                    }
+                } catch (error) {
+                    console.error('Error closing window:', error);
                 }
             }),
 
