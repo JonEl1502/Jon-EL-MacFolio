@@ -52,7 +52,7 @@ const WindowWrapper = (Component, windowKey) => {
         }, [isOpen]);
 
         const getWindowSize = () => {
-            if (windowKey.startsWith('imgfile')) return 'w-[800px] h-[600px]';
+            if (windowKey.startsWith('imgfile')) return 'w-[720px] h-[400px]';
             if (windowKey === 'finder') return 'w-[900px] h-[600px]';
             return '';
         };
