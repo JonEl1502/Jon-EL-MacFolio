@@ -57,7 +57,9 @@ const WindowWrapper = (Component, windowKey) => {
             return '';
         };
         
-        return <section id={windowKey} ref={ref} style={{zIndex: zIndex}} className={`absolute ${getWindowSize()}`}>
+        const position = windowState.position || { x: 0, y: 0 };
+        
+        return <section id={windowKey} ref={ref} style={{zIndex: zIndex, left: position.x, top: position.y}} className={`absolute ${getWindowSize()}`}>
             <Component {...props} {...(data || {})} />
         </section>
     };

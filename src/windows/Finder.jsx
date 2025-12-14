@@ -11,7 +11,7 @@ import WindowControls from "#components/WindowControls.jsx";
 import WindowWrapper from "#hoc/WindowWrapper.jsx";
 
 const Finder = () => {
-    const {openWindow} = useWindowStore();
+    const {openWindow, focusWindow, windows} = useWindowStore();
     const {activeLocation, setActiveLocation} = useLocationStore();
 
     // Simple UI render reuse
@@ -44,6 +44,17 @@ const Finder = () => {
         if (item.kind === "folder") return setActiveLocation(item);
         if (["fig", "url"].includes(item.fileType) && item.href) return window.open(item.href, "_blank");
         if (item.fileType === "img" && item.imageUrl) {
+            // Check if image is already open
+            const existingWindow = Object.entries(windows).find(([key, window]) => 
+                key.startsWith(`imgfile_${item.id}_`) && window.isOpen
+            );
+            
+            if (existingWindow) {
+                // Focus existing window instead of opening new one
+                focusWindow(existingWindow[0]);
+                return;
+            }
+            
             const uniqueWindowKey = `imgfile_${item.id}_${Date.now()}`;
             openWindow(uniqueWindowKey, {
                 src: item.imageUrl,

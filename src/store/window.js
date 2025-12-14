@@ -13,10 +13,20 @@ const useWindowStore = create(
         openWindow: (windowKey, data = null) =>
             set((state) => {
                 if (!state.windows[windowKey]) {
+                    // Calculate offset for image windows
+                    let position = { x: 0, y: 0 };
+                    if (windowKey.startsWith('imgfile_')) {
+                        const openImageWindows = Object.keys(state.windows)
+                            .filter(key => key.startsWith('imgfile_') && state.windows[key].isOpen)
+                            .length;
+                        position = { x: openImageWindows * 30, y: openImageWindows * 30 };
+                    }
+                    
                     state.windows[windowKey] = {
                         isOpen: false,
                         zIndex: INITIAL_Z_INDEX,
                         data: null,
+                        position,
                     };
                 }
                 const win = state.windows[windowKey];
