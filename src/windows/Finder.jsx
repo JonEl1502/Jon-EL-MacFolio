@@ -80,7 +80,7 @@ const Finder = () => {
             <ul className="content">
                 {activeLocation?.children?.map((item) => (
                     <li key={item.id}
-                        className={clsx("folder-item cursor-pointer")}
+                        className={clsx("folder-item cursor-pointer", item.position)}
                         onClick={() => {
                             openItem(item);
                         }}

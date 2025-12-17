@@ -222,6 +222,7 @@ const WORK_LOCATION = {
     icon: "/icons/work.svg",
     kind: "folder",
     children: [
+        // Tribe All Project
         {
             id: 5,
             name: "Tribe All Community Platform",
@@ -273,6 +274,7 @@ const WORK_LOCATION = {
             ],
         },
 
+        // VertiGrow Project
         {
             id: 6,
             name: "VertiGrow Vertical Farming",
@@ -391,57 +393,6 @@ const WORK_LOCATION = {
             ],
         },
 
-        // {
-        //     id: 7,
-        //     name: "Food Delivery App",
-        //     icon: "/images/folder.png",
-        //     kind: "folder",
-        //     position: "top-62 left-10",
-        //     children: [
-        //         {
-        //             id: 1,
-        //             name: "Food Delivery App Project.txt",
-        //             icon: "/images/txt.png",
-        //             kind: "file",
-        //             fileType: "txt",
-        //             position: "top-16 right-12",
-        //             description: [
-        //                 "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
-        //                 "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
-        //                 "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-        //                 "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
-        //             ],
-        //         },
-        //         {
-        //             id: 2,
-        //             name: "food-delivery-app.com",
-        //             icon: "/images/safari.png",
-        //             kind: "file",
-        //             fileType: "url",
-        //             href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
-        //             position: "top-4 left-20",
-        //         },
-        //         {
-        //             id: 3,
-        //             name: "food-delivery-app.png",
-        //             icon: "/images/image.png",
-        //             kind: "file",
-        //             fileType: "img",
-        //             position: "top-44 left-16",
-        //             imageUrl: "/images/project-3.png",
-        //         },
-        //         {
-        //             id: 4,
-        //             name: "food-delivery-app-2.png",
-        //             icon: "/images/image.png",
-        //             kind: "file",
-        //             fileType: "img",
-        //             position: "top-60 right-24",
-        //             imageUrl: "/images/project-3.png",
-        //         },
-        //     ],
-        // },
-
         // Westland Paws Clinic Project
         {
             id: 8,
@@ -467,12 +418,12 @@ const WORK_LOCATION = {
                 },
                 {
                     id: 802,
-                    name: "Westlands Paws Clinic",
+                    name: "westlands-paws.co.ke",
                     icon: "/images/safari.png",
                     kind: "file",
                     fileType: "url",
                     href: "https://westlandspawsclinic.vercel.app/",
-                    position: "top-24 right-16",
+                    position: "top-76 right-38",
                 },
                 {
                     id: 803,
@@ -489,7 +440,7 @@ const WORK_LOCATION = {
                     icon: "/images/image.png",
                     kind: "file",
                     fileType: "img",
-                    position: "top-36 right-8",
+                    position: "top-24 right-16",
                     imageUrl: "/images/westlandspaws-2.png",
                 },
             ],
@@ -541,7 +492,7 @@ const WORK_LOCATION = {
                     icon: "/images/image.png",
                     kind: "file",
                     fileType: "img",
-                    position: "top-36 right-8",
+                    position: "top-112 right-8",
                     imageUrl: "/images/woa-2.png",
                 },
                 {
@@ -550,7 +501,7 @@ const WORK_LOCATION = {
                     icon: "/images/image.png",
                     kind: "file",
                     fileType: "img",
-                    position: "top-36 right-8",
+                    position: "top-133 left-8",
                     imageUrl: "/images/woa-3.png",
                 },
                 {
@@ -559,11 +510,132 @@ const WORK_LOCATION = {
                     icon: "/images/image.png",
                     kind: "file",
                     fileType: "img",
-                    position: "top-36 right-8",
+                    position: "top-56 right-18",
                     imageUrl: "/images/woa-4.png",
                 },
             ],
         },
+
+
+        // Meat Lovers Project
+        {
+            id: 10,
+            name: "Meat Lovers Website Project",
+            icon: "/images/folder.png",
+            kind: "folder",
+            position: "top-62 left-100",
+            children: [
+                {
+                    id: 1001,
+                    name: "Meat Lovers Restaurant.txt",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-16 right-12",
+                    description: [
+                        "Meat Lovers Restaurant is a fantastic eatery in Nairobi, Kenya. ",
+                        "We are located at Agriculture House, Mezzanine Floor at the junction of Moi Avenue and Harambee Avenue. Next to Quickmart Supermarket near Bomblast Memorial."
+                    ],
+                },
+                {
+                    id: 1002,
+                    name: "meat-lovers-restaurant.co.ke",
+                    icon: "/images/safari.png",
+                    kind: "file",
+                    fileType: "url",
+                    href: "https://meat-lovers-restaurant.vercel.app/",
+                    position: "top-4 left-20",
+                },
+                {
+                    id: 1003,
+                    name: "image-1.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-44 left-16",
+                    imageUrl: "/images/meat-lovers-1.png",
+                },
+                {
+                    id: 1004,
+                    name: "image-2.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-60 right-24",
+                    imageUrl: "/images/meat-lovers-2.png",
+                },
+                {
+                    id: 1005,
+                    name: "image-3.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-80 left-24",
+                    imageUrl: "/images/meat-lovers-3.png",
+                },
+            ],
+        },
+
+
+        // Meat Lovers Project
+        {
+            id: 10,
+            name: "Meat Lovers Website Project",
+            icon: "/images/folder.png",
+            kind: "folder",
+            position: "top-62 left-100",
+            children: [
+                {
+                    id: 1001,
+                    name: "Meat Lovers Restaurant.txt",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-16 right-12",
+                    description: [
+                        "Meat Lovers Restaurant is a fantastic eatery in Nairobi, Kenya. ",
+                        "We are located at Agriculture House, Mezzanine Floor at the junction of Moi Avenue and Harambee Avenue. Next to Quickmart Supermarket near Bomblast Memorial."
+                    ],
+                },
+                {
+                    id: 1002,
+                    name: "meat-lovers-restaurant.co.ke",
+                    icon: "/images/safari.png",
+                    kind: "file",
+                    fileType: "url",
+                    href: "https://meat-lovers-restaurant.vercel.app/",
+                    position: "top-4 left-20",
+                },
+                {
+                    id: 1103,
+                    name: "image-1.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-44 left-16",
+                    imageUrl: "/images/cvets-1.png",
+                },
+                // {
+                //     id: 1004,
+                //     name: "image-2.png",
+                //     icon: "/images/image.png",
+                //     kind: "file",
+                //     fileType: "img",
+                //     position: "top-60 right-24",
+                //     imageUrl: "/images/meat-lovers-2.png",
+                // },
+                // {
+                //     id: 1005,
+                //     name: "image-3.png",
+                //     icon: "/images/image.png",
+                //     kind: "file",
+                //     fileType: "img",
+                //     position: "top-80 left-24",
+                //     imageUrl: "/images/meat-lovers-3.png",
+                // },
+            ],
+        },
+
     ],
 };
 
@@ -628,11 +700,12 @@ const RESUME_LOCATION = {
     kind: "folder",
     children: [
         {
-            id: 1,
+            id: 301,
             name: "Resume.pdf",
             icon: "/images/pdf.png",
             kind: "file",
             fileType: "pdf",
+            position: "top-16 left-12",
             // you can add `href` if you want to open a hosted resume
             // href: "/your/resume/path.pdf",
         },

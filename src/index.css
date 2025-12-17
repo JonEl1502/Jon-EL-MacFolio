@@ -338,10 +338,10 @@ body {
         }
 
         .content {
-            @apply flex-1 p-8 bg-white max-w-2xl overflow-auto grid grid-cols-3 gap-8;
+            @apply flex-1 p-8 bg-white max-w-2xl relative overflow-auto;
 
             li {
-                @apply relative flex items-center flex-col gap-3 py-2;
+                @apply absolute flex items-center flex-col gap-3 cursor-pointer;
 
                 img {
                     @apply object-contain object-center size-16 hover:scale-105 transition-transform;
