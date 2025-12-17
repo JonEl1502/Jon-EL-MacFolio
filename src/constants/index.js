@@ -230,7 +230,7 @@ const WORK_LOCATION = {
             position: "top-5 left-5",
             children: [
                 {
-                    id: 1,
+                    id: 501,
                     name: "Tribe All Project.txt",
                     icon: "/images/txt.png",
                     kind: "file",
@@ -244,7 +244,7 @@ const WORK_LOCATION = {
                     ],
                 },
                 {
-                    id: 2,
+                    id: 502,
                     name: "tribe-all.com",
                     icon: "/images/safari.png",
                     kind: "file",
@@ -253,7 +253,7 @@ const WORK_LOCATION = {
                     position: "top-8 right-24",
                 },
                 {
-                    id: 3,
+                    id: 503,
                     name: "tribe-all-1.png",
                     icon: "/images/image.png",
                     kind: "file",
@@ -262,7 +262,7 @@ const WORK_LOCATION = {
                     imageUrl: "/images/tribe-all-1.png",
                 },
                 {
-                    id: 4,
+                    id: 504,
                     name: "tribe-all-2.png",
                     icon: "/images/image.png",
                     kind: "file",
@@ -281,7 +281,7 @@ const WORK_LOCATION = {
             position: "top-33 left-5",
             children: [
                 {
-                    id: 1,
+                    id: 601,
                     name: "VertiGrow Project.txt",
                     icon: "/images/txt.png",
                     kind: "file",
@@ -295,7 +295,7 @@ const WORK_LOCATION = {
                     ],
                 },
                 {
-                    id: 2,
+                    id: 602,
                     name: "verti-grow.com",
                     icon: "/images/safari.png",
                     kind: "file",
@@ -304,7 +304,7 @@ const WORK_LOCATION = {
                     position: "top-6 right-20",
                 },
                 {
-                    id: 3,
+                    id: 603,
                     name: "verti-grow-1.png",
                     icon: "/images/image.png",
                     kind: "file",
@@ -313,7 +313,7 @@ const WORK_LOCATION = {
                     imageUrl: "/images/verti-grow-1.png",
                 },
                 {
-                    id: 4,
+                    id: 604,
                     name: "verti-grow-2.png",
                     icon: "/images/image.png",
                     kind: "file",
@@ -326,15 +326,14 @@ const WORK_LOCATION = {
 
         // Shower to Shower Project
         {
-            id: 6,
+            id: 7,
             name: "Shower to Shower Online Store",
             icon: "/images/folder2.png",
             kind: "folder",
             position: "top-113 right-5",
-            // position: "top-113 left-5",
             children: [
                 {
-                    id: 1,
+                    id: 701,
                     name: "Shower to Shower Brand.txt",
                     icon: "/images/txt.png",
                     kind: "file",
@@ -345,7 +344,7 @@ const WORK_LOCATION = {
                     ],
                 },
                 {
-                    id: 2,
+                    id: 702,
                     name: "shower-to-shower.co.ke",
                     icon: "/images/safari.png",
                     kind: "file",
@@ -354,7 +353,7 @@ const WORK_LOCATION = {
                     position: "top-6 right-20",
                 },
                 {
-                    id: 3,
+                    id: 703,
                     name: "Image-1.png",
                     icon: "/images/image.png",
                     kind: "file",
@@ -363,7 +362,7 @@ const WORK_LOCATION = {
                     imageUrl: "/images/shower-to-shower-1.png",
                 },
                 {
-                    id: 4,
+                    id: 704,
                     name: "Image-2.png",
                     icon: "/images/image.png",
                     kind: "file",
@@ -372,7 +371,7 @@ const WORK_LOCATION = {
                     imageUrl: "/images/shower-to-shower-2.png",
                 },
                 {
-                    id: 5,
+                    id: 705,
                     name: "Image-3.png",
                     icon: "/images/image.png",
                     kind: "file",
@@ -381,7 +380,7 @@ const WORK_LOCATION = {
                     imageUrl: "/images/shower-to-shower-3.png",
                 },
                 {
-                    id: 4,
+                    id: 706,
                     name: "Image-4.png",
                     icon: "/images/image.png",
                     kind: "file",
@@ -452,7 +451,7 @@ const WORK_LOCATION = {
             position: "top-85 left-6",
             children: [
                 {
-                    id: 1,
+                    id: 801,
                     name: "Westlands Paws Clinic Project.txt",
                     icon: "/images/txt.png",
                     kind: "file",
@@ -467,7 +466,7 @@ const WORK_LOCATION = {
                     ],
                 },
                 {
-                    id: 2,
+                    id: 802,
                     name: "Westlands Paws Clinic",
                     icon: "/images/safari.png",
                     kind: "file",
@@ -476,7 +475,7 @@ const WORK_LOCATION = {
                     position: "top-24 right-16",
                 },
                 {
-                    id: 3,
+                    id: 803,
                     name: "westlandspaws-1.png",
                     icon: "/images/image.png",
                     kind: "file",
@@ -485,13 +484,83 @@ const WORK_LOCATION = {
                     imageUrl: "/images/westlandspaws-1.png",
                 },
                 {
-                    id: 4,
+                    id: 804,
                     name: "westlandspaws-2.png",
                     icon: "/images/image.png",
                     kind: "file",
                     fileType: "img",
                     position: "top-36 right-8",
                     imageUrl: "/images/westlandspaws-2.png",
+                },
+            ],
+        },
+
+
+        // WOAdvocates Project
+        {
+            id: 9,
+            name: "WOAdvocates Website",
+            icon: "/images/folder.png",
+            kind: "folder",
+            position: "top-45 left-160",
+            children: [
+                {
+                    id: 901,
+                    name: "WOAdvocates.txt",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-8 left-20",
+                    description: [
+                        "Wanzau, Odhiambo & Associates Advocates is a law firm formed and registered in 2020 that is committed to providing its clients with top notch legal services. The firm offers tailored services that are unique to the changing needs of our clients in different environments.",
+                        "We provide clear and practical advice based on an in-depth knowledge of the legal, regulatory and policy framework within which our clients operate in order to deliver practical solutions to our clients and while at it, do an outstanding job.",
+                        "Our size, resources, combination of breadth of skills, communications, facilities and geographic spread enable us to handle the largest and most time-critical transactions when required. We are fully aware of the need for legal advice and legal structures to be compatible with the needs of modern commerce, industry and finance."
+                    ],
+                },
+                {
+                    id: 902,
+                    name: "woadvocates.co.ke",
+                    icon: "/images/safari.png",
+                    kind: "file",
+                    fileType: "url",
+                    href: "https://woadvocates.vercel.app/",
+                    position: "top-24 right-16",
+                },
+                {
+                    id: 903,
+                    name: "woa-1.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-52 left-12",
+                    imageUrl: "/images/woa-1.png",
+                },
+                {
+                    id: 904,
+                    name: "woa-2.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-36 right-8",
+                    imageUrl: "/images/woa-2.png",
+                },
+                {
+                    id: 905,
+                    name: "woa-3.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-36 right-8",
+                    imageUrl: "/images/woa-3.png",
+                },
+                {
+                    id: 906,
+                    name: "woa-4.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-36 right-8",
+                    imageUrl: "/images/woa-4.png",
                 },
             ],
         },
@@ -506,7 +575,7 @@ const ABOUT_LOCATION = {
     kind: "folder",
     children: [
         {
-            id: 1,
+            id: 201,
             name: "me.png",
             icon: "/images/image.png",
             kind: "file",
@@ -515,7 +584,7 @@ const ABOUT_LOCATION = {
             imageUrl: "/images/adrian.jpg",
         },
         {
-            id: 2,
+            id: 202,
             name: "casual-me.png",
             icon: "/images/image.png",
             kind: "file",
@@ -524,7 +593,7 @@ const ABOUT_LOCATION = {
             imageUrl: "/images/adrian-2.jpg",
         },
         {
-            id: 3,
+            id: 203,
             name: "conference-me.png",
             icon: "/images/image.png",
             kind: "file",
@@ -533,7 +602,7 @@ const ABOUT_LOCATION = {
             imageUrl: "/images/adrian-3.jpeg",
         },
         {
-            id: 4,
+            id: 204,
             name: "about-me.txt",
             icon: "/images/txt.png",
             kind: "file",
@@ -578,7 +647,7 @@ const TRASH_LOCATION = {
     kind: "folder",
     children: [
         {
-            id: 1,
+            id: 401,
             name: "trash1.png",
             icon: "/images/image.png",
             kind: "file",
@@ -587,7 +656,7 @@ const TRASH_LOCATION = {
             imageUrl: "/images/trash-1.png",
         },
         {
-            id: 2,
+            id: 402,
             name: "trash2.png",
             icon: "/images/image.png",
             kind: "file",

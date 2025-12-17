@@ -338,17 +338,17 @@ body {
         }
 
         .content {
-            @apply flex-1 p-8 bg-white max-w-2xl relative;
+            @apply flex-1 p-8 bg-white max-w-2xl overflow-auto grid grid-cols-3 gap-8;
 
             li {
-                @apply absolute flex items-center flex-col gap-3;
+                @apply relative flex items-center flex-col gap-3 py-2;
 
                 img {
-                    @apply object-contain object-center size-16 relative group-hover:scale-105;
+                    @apply object-contain object-center size-16 hover:scale-105 transition-transform;
                 }
 
                 p {
-                    @apply text-sm text-center font-medium w-40;
+                    @apply text-sm text-center font-medium w-40 break-words;
                 }
             }
         }

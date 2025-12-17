@@ -80,16 +80,17 @@ const Finder = () => {
             <ul className="content">
                 {activeLocation?.children?.map((item) => (
                     <li key={item.id}
-                        className={item.position}
-                        onClick={() =>
-                            openItem(item)}
+                        className={clsx("folder-item cursor-pointer")}
+                        onClick={() => {
+                            openItem(item);
+                        }}
                     >
                         <img src={item.icon}
                              alt={item.name}
+                             className="pointer-events-none"
                         />
-                        <p className="text-sm text-teal-600">{item.name}</p>
+                        <p className="text-sm text-teal-600 pointer-events-none">{item.name}</p>
                     </li>
-
                 ))}
             </ul>
         </div>
