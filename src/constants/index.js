@@ -324,6 +324,74 @@ const WORK_LOCATION = {
             ],
         },
 
+        // Shower to Shower Project
+        {
+            id: 6,
+            name: "Shower to Shower Online Store",
+            icon: "/images/folder2.png",
+            kind: "folder",
+            position: "top-113 right-5",
+            // position: "top-113 left-5",
+            children: [
+                {
+                    id: 1,
+                    name: "Shower to Shower Brand.txt",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-10 left-12",
+                    description: [
+                        "Shower to Shower is an online store dedicated to providing high-quality personal care products.",
+                    ],
+                },
+                {
+                    id: 2,
+                    name: "shower-to-shower.co.ke",
+                    icon: "/images/safari.png",
+                    kind: "file",
+                    fileType: "url",
+                    href: "https://shower-to-shower.vercel.app/",
+                    position: "top-6 right-20",
+                },
+                {
+                    id: 3,
+                    name: "Image-1.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-66 right-8",
+                    imageUrl: "/images/shower-to-shower-1.png",
+                },
+                {
+                    id: 4,
+                    name: "Image-2.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-90 left-54",
+                    imageUrl: "/images/shower-to-shower-2.png",
+                },
+                {
+                    id: 5,
+                    name: "Image-3.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-50 right-54",
+                    imageUrl: "/images/shower-to-shower-3.png",
+                },
+                {
+                    id: 4,
+                    name: "Image-4.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-90 left-14",
+                    imageUrl: "/images/shower-to-shower-4.png",
+                },
+            ],
+        },
+
         // {
         //     id: 7,
         //     name: "Food Delivery App",
@@ -375,6 +443,7 @@ const WORK_LOCATION = {
         //     ],
         // },
 
+        // Westland Paws Clinic Project
         {
             id: 8,
             name: "Westland-Paws Clinic Website",
@@ -473,10 +542,10 @@ const ABOUT_LOCATION = {
             subtitle: "Meet the Developer Behind the Code",
             image: "/images/adrian.jpg",
             description: [
-                "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
-                "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
+                "Hey! I’m John Kabiu,👋, a software developer who enjoys building sleek, interactive websites, mobile apps, and more, with a focus on creating experiences that actually work well.",
+                "I specialize in JavaScript & TypeScript(React.js, Next.js, Vue.js), Node.js (Express), Flutter and Native Android(Kotlin, Java, Jetpack Compose) — and I love making things feel smooth, fast, and just a little bit delightful.",
                 "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
-                "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
+                "Outside of dev work, you'll find me making vertical hydronic towers, exploring new places, racing, or just chilling at home with my friends, chatting about sports cutting edge tech, and so many other things 😅",
             ],
         },
     ],
