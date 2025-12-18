@@ -599,7 +599,7 @@ const WORK_LOCATION = {
                 },
                 {
                     id: 1102,
-                    name: "cvets-clinic.co.ke",
+                    name: "cvetsveterinaryclinic.co.ke",
                     icon: "/images/safari.png",
                     kind: "file",
                     fileType: "url",
