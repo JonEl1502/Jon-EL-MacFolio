@@ -599,11 +599,11 @@ const WORK_LOCATION = {
                 },
                 {
                     id: 1102,
-                    name: "meat-lovers-restaurant.co.ke",
+                    name: "cvets-clinic.co.ke",
                     icon: "/images/safari.png",
                     kind: "file",
                     fileType: "url",
-                    href: "https://meat-lovers-restaurant.vercel.app/",
+                    href: "https://cvetsveterinaryclinic.vercel.app/",
                     position: "top-4 left-20",
                 },
                 {
