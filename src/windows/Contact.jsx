@@ -26,7 +26,7 @@ const Contact = () => {
                             <div className="flex items-center gap-2 p-2 bg-gray-50 rounded">
                                 <Mail className="w-4 h-4 text-blue-600" />
                                 <a href="mailto:your.email@example.com" className="text-sm text-gray-900 hover:text-blue-600">
-                                    your.email@example.com
+                                    johnkabiumwaura@gmail.com
                                 </a>
                             </div>
 
@@ -39,7 +39,7 @@ const Contact = () => {
 
                             <div className="flex items-center gap-2 p-2 bg-gray-50 rounded">
                                 <MapPin className="w-4 h-4 text-red-600" />
-                                <p className="text-sm text-gray-900">San Francisco, CA</p>
+                                <p className="text-sm text-gray-900">Nairobi Kenya, KE</p>
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@ const Contact = () => {
                     </div>
 
                     <div className="flex items-center justify-center">
-                        <img src="/images/adrian-3.jpeg" alt="Profile" className="w-full h-full object-cover rounded-lg" />
+                        <img src="/images/jonel-1.jpg" alt="Profile" className="w-full h-full object-cover rounded-lg" />
 
                         {showDialog && (
                             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setShowDialog(false)}>

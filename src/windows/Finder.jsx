@@ -72,13 +72,14 @@ const Finder = () => {
 
         <div className="bg-white flex h-full">
             <div className="sidebar">
-                {renderList('Favorite', Object.values(locations))}
+                {/* Ensure 'Work' appears in favorites and positioned above About Me */}
+                {renderList('Favorite', [locations.work, ...Object.values(locations).filter(l => l.type !== 'work')])}
 
-                {renderList('My Projects', locations.work.children)}
+                {renderList('My Projects', locations.workhome.children)}
             </div>
 
             <ul className="content">
-                {activeLocation?.children?.map((item) => (
+                {((activeLocation?.type === 'work') ? locations.workhome.children : activeLocation?.children)?.map((item) => (
                     <li key={item.id}
                         className={clsx("folder-item cursor-pointer", item.position)}
                         onClick={() => {
