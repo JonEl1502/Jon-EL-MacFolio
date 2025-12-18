@@ -453,7 +453,7 @@ const WORK_LOCATION = {
             name: "WOAdvocates Website",
             icon: "/images/folder.png",
             kind: "folder",
-            position: "top-45 left-160",
+            position: "top-112 right-110",
             children: [
                 {
                     id: 901,
@@ -523,7 +523,7 @@ const WORK_LOCATION = {
             name: "Meat Lovers Website Project",
             icon: "/images/folder.png",
             kind: "folder",
-            position: "top-62 left-100",
+            position: "top-62 left-60",
             children: [
                 {
                     id: 1001,
@@ -577,28 +577,28 @@ const WORK_LOCATION = {
         },
 
 
-        // Meat Lovers Project
+        // CVets Project
         {
-            id: 10,
-            name: "Meat Lovers Website Project",
+            id: 11,
+            name: "CVets Clinic Website Project",
             icon: "/images/folder.png",
             kind: "folder",
-            position: "top-62 left-100",
+            position: "top-22 right-40",
             children: [
                 {
-                    id: 1001,
-                    name: "Meat Lovers Restaurant.txt",
+                    id: 1101,
+                    name: "CVets Clinic.txt",
                     icon: "/images/txt.png",
                     kind: "file",
                     fileType: "txt",
                     position: "top-16 right-12",
                     description: [
-                        "Meat Lovers Restaurant is a fantastic eatery in Nairobi, Kenya. ",
-                        "We are located at Agriculture House, Mezzanine Floor at the junction of Moi Avenue and Harambee Avenue. Next to Quickmart Supermarket near Bomblast Memorial."
+                        "CVets Clinic is a premier veterinary clinic dedicated to providing exceptional care for your",
+                        " beloved pets. Located in Nairobi, Kenya, we offer a wide range of services including wellness exams, vaccinations, surgical procedures, dental care, and emergency services. Our team of experienced veterinarians and compassionate staff are committed to ensuring the health and well-being of your furry family members. At CVets Clinic, we believe in building lasting relationships with our clients and their pets through personalized care and attention.",
                     ],
                 },
                 {
-                    id: 1002,
+                    id: 1102,
                     name: "meat-lovers-restaurant.co.ke",
                     icon: "/images/safari.png",
                     kind: "file",
