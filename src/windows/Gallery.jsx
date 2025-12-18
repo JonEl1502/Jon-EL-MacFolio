@@ -5,10 +5,10 @@ import useWindowStore from "#store/window.js";
 const Gallery = () => {
     const { openWindow } = useWindowStore();
     const images = [
-        { id: 1, src: "/images/gal1.png", alt: "Gallery 1" },
-        { id: 2, src: "/images/gal2.png", alt: "Gallery 2" },
-        { id: 3, src: "/images/gal3.png", alt: "Gallery 3" },
-        { id: 4, src: "/images/gal4.png", alt: "Gallery 4" },
+        { id: 1, src: "/images/jonel-1.jpg", alt: "Gallery 1" },
+        { id: 2, src: "/images/gal2w.png", alt: "Gallery 2" },
+        { id: 3, src: "/images/gal3s.png", alt: "Gallery 3" },
+        { id: 4, src: "/images/gal4s.png", alt: "Gallery 4" },
     ];
 
     const handleImageClick = (image) => {
