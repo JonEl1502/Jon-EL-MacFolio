@@ -81,7 +81,7 @@ const blogPosts = [
         title:
             "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
         image: "/images/blog1.png",
-        link: "https://jsmastery1.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
+        link: "vet-hub-enterprise.vercel.app",
     },
     {
         id: 2,
@@ -102,27 +102,27 @@ const blogPosts = [
 const techStack = [
     {
         category: "Frontend",
-        items: ["React.js", "Next.js", "TypeScript"],
+        items: ["Vue.js", "React.js", "Next.js", ],
     },
     {
         category: "Mobile",
-        items: ["React Native", "Expo"],
+        items: ["Android Native", "Flutter(Multiplatform)",],
     },
     {
         category: "Styling",
-        items: ["Tailwind CSS", "Sass", "CSS"],
+        items: ["Tailwind CSS", "Sass", "CSS", "Bootstrap"],
     },
     {
         category: "Backend",
-        items: ["Node.js", "Express", "NestJS", "Hono"],
+        items: ["Node.js", "Express", "PHP(Phalcon)"],
     },
     {
         category: "Database",
-        items: ["MongoDB", "PostgreSQL"],
+        items: ["MongoDB", "PostgreSQL", "MySQL"],
     },
     {
         category: "Dev Tools",
-        items: ["Git", "GitHub", "Docker"],
+        items: ["Git", "GitHub", "BitBucket", "NPM", "Yarn"],
     },
 ];
 
