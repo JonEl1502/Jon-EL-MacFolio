@@ -65,14 +65,40 @@
 }
 
 .aos-app-grid {
-    flex: 1;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px 4px;
     align-content: start;
-    overflow-y: auto;
     padding-top: 12px;
 }
+
+/* ---------- Pull-to-refresh ---------- */
+.aos-ptr {
+    position: relative;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;       /* block the browser's native PTR */
+    -webkit-overflow-scrolling: touch;
+}
+.aos-ptr-inner { will-change: transform; }
+.aos-ptr-indicator {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1230;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+    transition: opacity 0.15s ease;
+    z-index: 5;
+    pointer-events: none;
+}
+.aos-spin { animation: aos-spin 0.75s linear infinite; }
+@keyframes aos-spin { to { transform: rotate(360deg); } }
 
 .aos-app-icon {
     background: transparent;
