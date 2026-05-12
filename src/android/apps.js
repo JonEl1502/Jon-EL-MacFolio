@@ -50,13 +50,19 @@ const projectApps = (locations.workhome?.children || []).map((p) => {
 
 const withPalette = (app) => ({...app, palette: pickPalette(app.id)})
 
-// Apps pinned to the bottom dock — primary calls to action.
+// Apps pinned to the persistent bottom dock — primary navigation.
+// Order matches the old nav-tab order: Projects, Contact, Resume.
 export const dockApps = [
-    {id: 'resume',  kind: 'system-resume',  name: 'Resume',  icon: '/images/pdf.png'},
-    {id: 'contact', kind: 'system-contact', name: 'Contact', icon: '/images/contact.png'},
+    {id: 'projects', kind: 'system-portfolio', name: 'Projects', icon: '/images/folder.png'},
+    {id: 'contact',  kind: 'system-contact',   name: 'Contact',  icon: '/images/contact.png'},
+    {id: 'resume',   kind: 'system-resume',    name: 'Resume',   icon: '/images/pdf.png'},
 ].map(withPalette)
 
-// Everything else lives on the home grid.
-export const homeApps = [...systemApps, ...projectApps].map(withPalette)
+// Everything else lives on the home grid. Drop "Portfolio" since it's now
+// in the dock as "Projects" and the home grid lists the projects directly.
+export const homeApps = [
+    ...systemApps.filter((a) => a.id !== 'portfolio'),
+    ...projectApps,
+].map(withPalette)
 
 export const allApps = [...homeApps, ...dockApps]

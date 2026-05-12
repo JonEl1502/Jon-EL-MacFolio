@@ -1043,6 +1043,48 @@ const WORK_LOCATION2 = {
             ],
         },
 
+        // MossBets Project (Android app on Google Play)
+        {
+            id: 12,
+            name: "MossBets App",
+            icon: "/images/folder.png",
+            kind: "folder",
+            position: "top-130 left-70",
+            children: [
+                {
+                    id: 1201,
+                    name: "MossBets.txt",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-12 left-12",
+                    description: [
+                        "MossBets is a native Android sports-betting app published on Google Play, built for fast pre-match and in-play wagering on a wide range of markets.",
+                        "Key surfaces include the live odds board, an in-play match center with real-time updates, a bet slip with single/accumulator support, and an account section for deposits, withdrawals, and bet history.",
+                        "Engineered as a Kotlin/Android Native client backed by a REST API, with a tight focus on responsiveness and battery-friendly real-time updates over slower mobile networks.",
+                    ],
+                },
+                {
+                    id: 1202,
+                    name: "play.google.com",
+                    icon: "/images/safari.png",
+                    kind: "file",
+                    fileType: "url",
+                    href: "https://play.google.com/store/apps/details?id=com.mossberg.mossbets",
+                    position: "top-8 right-20",
+                },
+                {
+                    id: 1203,
+                    name: "mossbets-1.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-44 right-12",
+                    imageUrl: "/images/mossbets-1.png",
+                },
+            ],
+        },
+
     ],
 };
 

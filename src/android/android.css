@@ -13,7 +13,7 @@
     --aos-radius-md: 20px;
     --aos-radius-sm: 14px;
     --aos-statusbar-h: 28px;
-    --aos-navbar-h: 48px;
+    --aos-dock-h: 84px;
 
     position: fixed;
     inset: 0;
@@ -57,7 +57,7 @@
     position: absolute;
     top: var(--aos-statusbar-h);
     left: 0; right: 0;
-    bottom: var(--aos-navbar-h);
+    bottom: var(--aos-dock-h);
     padding: 16px 14px 12px;
     display: flex;
     flex-direction: column;
@@ -114,52 +114,47 @@
     white-space: nowrap;
 }
 
-/* Dock */
-.aos-dock {
-    margin-top: 12px;
-    padding: 10px;
-    background: var(--aos-surface);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 26px;
-    display: flex;
-    justify-content: space-around;
-}
-.aos-dock .aos-app-icon-label { display: none; }
-.aos-dock .aos-app-icon-tile { width: 56px; height: 56px; }
-
-/* ---------- Nav bar (tab strip) ---------- */
-.aos-navbar {
+/* ---------- Persistent bottom dock ---------- */
+.aos-dock-bar {
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    height: var(--aos-navbar-h);
+    height: var(--aos-dock-h);
+    padding: 10px 14px 14px;
+    z-index: 25;
     display: flex;
-    align-items: stretch;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+.aos-dock {
+    pointer-events: auto;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
     justify-content: space-around;
-    z-index: 11;
-    background: rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    gap: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
 }
-.aos-nav-tab {
-    flex: 1;
-    background: transparent;
-    border: 0;
-    color: var(--aos-text);
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
+.aos-dock .aos-app-icon-label { display: none; }
+.aos-dock .aos-app-icon-tile { width: 54px; height: 54px; }
+.aos-dock-slot {
     position: relative;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
-    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.aos-nav-tab:active { opacity: 0.6; }
-.aos-nav-tab.is-active::after {
+.aos-dock-slot.is-active::before {
     content: '';
     position: absolute;
-    left: 32%; right: 32%; bottom: 6px;
-    height: 3px; border-radius: 2px;
-    background: var(--aos-text);
+    bottom: -8px; left: 50%;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: #fff;
+    transform: translateX(-50%);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
 }
 
 /* ---------- App frame (full-screen open app) ---------- */
@@ -198,7 +193,7 @@
 .aos-app-body {
     flex: 1;
     overflow-y: auto;
-    padding-bottom: calc(var(--aos-navbar-h) + 8px);
+    padding-bottom: calc(var(--aos-dock-h) + 8px);
     background: #111014;
 }
 .aos-app-empty { padding: 40px; text-align: center; opacity: 0.6; }
