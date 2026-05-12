@@ -1,29 +1,20 @@
-// External
-import {Draggable} from 'gsap/Draggable';
-import gsap from "gsap";
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 
-// Internal
-import {Navbar, Welcome, Dock, Home, DynamicWindows} from '#components'
-import {Terminal, Safari, Resume, Finder, Text, Contact, Gallery} from "#windows";
+import DesktopOS from '#desktop/DesktopOS.jsx'
+import AndroidOS from '#android/AndroidOS.jsx'
+import DeviceRoute from '#components/DeviceRoute.jsx'
 
-// GSAP
-gsap.registerPlugin(Draggable)
-// Render
-const App = () => {
-    return (<main>
-            <Navbar/>
-            <Welcome/>
-            <Dock/>
+const App = () => (
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<DeviceRoute/>}/>
+            <Route path="/desktop" element={<DesktopOS/>}/>
+            <Route path="/android" element={<AndroidOS/>}/>
+            {/* iOS coming later — fall back to Android for now so phones still work */}
+            <Route path="/ios" element={<AndroidOS/>}/>
+            <Route path="*" element={<Navigate to="/" replace/>}/>
+        </Routes>
+    </BrowserRouter>
+)
 
-            <Terminal/>
-            <Safari/>
-            <Resume/>
-            <Finder/>
-            <Text/>
-            <Contact/>
-            <Gallery/>
-            <DynamicWindows/>
-            <Home/>
-        </main>)
-}
 export default App

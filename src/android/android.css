@@ -1,0 +1,362 @@
+/* Material You-ish Android shell.
+ * Scoped under .aos so it can't leak into the desktop UI. */
+
+.aos {
+    --aos-bg-1: #1a1230;
+    --aos-bg-2: #3a1e6a;
+    --aos-bg-3: #6b3eb0;
+    --aos-surface: rgba(255, 255, 255, 0.10);
+    --aos-surface-strong: rgba(255, 255, 255, 0.18);
+    --aos-text: #ffffff;
+    --aos-text-dim: rgba(255, 255, 255, 0.72);
+    --aos-radius-lg: 28px;
+    --aos-radius-md: 20px;
+    --aos-radius-sm: 14px;
+    --aos-statusbar-h: 28px;
+    --aos-navbar-h: 48px;
+
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    color: var(--aos-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        'Helvetica Neue', Arial, sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.aos-wallpaper {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 80% 0%, #ff9eb1 0%, transparent 50%),
+        radial-gradient(ellipse at 0% 100%, #4ea3ff 0%, transparent 55%),
+        linear-gradient(170deg, var(--aos-bg-1), var(--aos-bg-2) 60%, var(--aos-bg-3));
+    z-index: 0;
+}
+
+/* ---------- Status bar ---------- */
+.aos-statusbar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: var(--aos-statusbar-h);
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    z-index: 10;
+}
+.aos-clock { font-variant-numeric: tabular-nums; }
+.aos-status-icons { display: inline-flex; align-items: center; gap: 6px; }
+
+/* ---------- Home screen ---------- */
+.aos-home {
+    position: absolute;
+    top: var(--aos-statusbar-h);
+    left: 0; right: 0;
+    bottom: var(--aos-navbar-h);
+    padding: 16px 14px 12px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.aos-app-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px 4px;
+    align-content: start;
+    overflow-y: auto;
+    padding-top: 12px;
+}
+
+.aos-app-icon {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    -webkit-tap-highlight-color: transparent;
+}
+.aos-app-icon-tile {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition: transform 0.15s ease;
+}
+.aos-app-icon-tile img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    pointer-events: none;
+}
+.aos-app-icon:active .aos-app-icon-tile { transform: scale(0.92); }
+.aos-app-icon-label {
+    font-size: 11px;
+    font-weight: 500;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    text-align: center;
+    line-height: 1.15;
+    max-width: 72px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Dock */
+.aos-dock {
+    margin-top: 12px;
+    padding: 10px;
+    background: var(--aos-surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 26px;
+    display: flex;
+    justify-content: space-around;
+}
+.aos-dock .aos-app-icon-label { display: none; }
+.aos-dock .aos-app-icon-tile { width: 56px; height: 56px; }
+
+/* ---------- Nav bar (tab strip) ---------- */
+.aos-navbar {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: var(--aos-navbar-h);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    z-index: 11;
+    background: rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+.aos-nav-tab {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    color: var(--aos-text);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+    -webkit-tap-highlight-color: transparent;
+}
+.aos-nav-tab:active { opacity: 0.6; }
+.aos-nav-tab.is-active::after {
+    content: '';
+    position: absolute;
+    left: 32%; right: 32%; bottom: 6px;
+    height: 3px; border-radius: 2px;
+    background: var(--aos-text);
+}
+
+/* ---------- App frame (full-screen open app) ---------- */
+.aos-app-frame {
+    position: absolute;
+    inset: 0;
+    background: #111014;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+    overflow: hidden;
+}
+.aos-app-header {
+    flex: 0 0 auto;
+    height: calc(var(--aos-statusbar-h) + 44px);
+    padding-top: var(--aos-statusbar-h);
+    background: #1b1a20;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.aos-app-back {
+    width: 48px; height: 44px;
+    background: transparent; border: 0; color: inherit; cursor: pointer;
+    display: grid; place-items: center;
+}
+.aos-app-title {
+    flex: 1;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+}
+.aos-app-header-spacer { width: 48px; }
+.aos-app-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: calc(var(--aos-navbar-h) + 8px);
+    background: #111014;
+}
+.aos-app-empty { padding: 40px; text-align: center; opacity: 0.6; }
+
+/* ---------- Project app ---------- */
+.aos-project-hero {
+    width: 100%;
+    background: #000;
+}
+.aos-project-hero img { width: 100%; display: block; }
+.aos-project-info { padding: 20px 18px 32px; }
+.aos-project-info h2 { margin: 0 0 6px; font-size: 22px; font-weight: 700; }
+.aos-project-info h3 { margin: 24px 0 10px; font-size: 14px; color: #aaa; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.aos-project-info p { margin: 0 0 12px; line-height: 1.55; color: #ddd; font-size: 14px; }
+.aos-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 10px 0 18px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #7c5cff, #2cc1ff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14px;
+}
+.aos-project-shots {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+.aos-project-shots img {
+    width: 100%;
+    border-radius: 14px;
+    display: block;
+}
+
+/* ---------- Resume app ---------- */
+.aos-resume { display: flex; flex-direction: column; height: 100%; }
+.aos-resume-toolbar {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 10px 16px;
+    background: #1b1a20;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+}
+.aos-resume-toolbar button, .aos-resume-dl {
+    background: transparent; border: 0; color: inherit;
+    width: 36px; height: 36px; border-radius: 50%;
+    display: grid; place-items: center; cursor: pointer; text-decoration: none;
+}
+.aos-resume-toolbar button:disabled { opacity: 0.3; cursor: default; }
+.aos-resume-page {
+    flex: 1; overflow-y: auto;
+    display: flex; justify-content: center;
+    padding: 16px;
+}
+
+/* ---------- Contact app ---------- */
+.aos-contact { padding: 28px 20px; }
+.aos-contact-card {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.aos-avatar {
+    width: 96px; height: 96px; border-radius: 50%; object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.15);
+}
+.aos-avatar-lg { width: 120px; height: 120px; margin: 0 auto 12px; }
+.aos-contact-card h2 { margin: 14px 0 4px; font-size: 22px; }
+.aos-role { color: #aaa; font-size: 14px; margin: 0; }
+
+.aos-contact-list, .aos-socials { list-style: none; padding: 0; margin: 24px 0; }
+.aos-contact-list li {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px; background: #1c1b22; border-radius: 14px; margin-bottom: 10px;
+}
+.aos-contact-list li a { display: contents; color: inherit; text-decoration: none; }
+
+.aos-socials li, .aos-socials-list li { margin-bottom: 10px; }
+.aos-socials a {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px; border-radius: 14px;
+    color: #fff; text-decoration: none; font-weight: 600;
+}
+.aos-socials a img { width: 22px; height: 22px; }
+.aos-socials a span { flex: 1; }
+
+.aos-contact h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin: 24px 0 10px; }
+
+/* ---------- Gallery app ---------- */
+.aos-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    padding: 4px;
+}
+.aos-gallery-grid button {
+    background: transparent; border: 0; padding: 0; cursor: pointer;
+}
+.aos-gallery-grid img {
+    width: 100%; aspect-ratio: 1; object-fit: cover; display: block; border-radius: 6px;
+}
+.aos-lightbox {
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.92);
+    display: grid; place-items: center; z-index: 30;
+}
+.aos-lightbox img { max-width: 95vw; max-height: 80vh; }
+.aos-lightbox-close {
+    position: absolute; top: calc(var(--aos-statusbar-h) + 8px); right: 14px;
+    background: rgba(255, 255, 255, 0.18); border: 0; color: #fff;
+    width: 38px; height: 38px; border-radius: 50%;
+    display: grid; place-items: center; cursor: pointer;
+}
+
+/* ---------- Articles app ---------- */
+.aos-articles { list-style: none; padding: 12px; margin: 0; }
+.aos-article { margin-bottom: 14px; }
+.aos-article a {
+    display: flex; gap: 12px;
+    padding: 12px; background: #1c1b22; border-radius: 18px;
+    text-decoration: none; color: inherit;
+}
+.aos-article img {
+    width: 96px; height: 96px; flex-shrink: 0;
+    object-fit: cover; border-radius: 12px;
+}
+.aos-article-date { font-size: 11px; color: #888; }
+.aos-article h3 { margin: 4px 0 6px; font-size: 14px; line-height: 1.3; color: #eee; }
+.aos-article-cta { font-size: 12px; color: #7c9eff; display: inline-flex; align-items: center; gap: 4px; }
+
+/* ---------- Skills app ---------- */
+.aos-skills { padding: 20px; display: grid; gap: 18px; }
+.aos-skills section { background: #1c1b22; border-radius: 18px; padding: 16px 18px; }
+.aos-skills h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: #aaa; }
+.aos-skills ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.aos-skills li {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    font-size: 13px;
+}
+
+/* ---------- Portfolio app ---------- */
+.aos-portfolio { list-style: none; padding: 12px; margin: 0; }
+.aos-portfolio li { margin-bottom: 10px; }
+.aos-portfolio button {
+    width: 100%; background: #1c1b22; border: 0; color: inherit; cursor: pointer;
+    padding: 10px; border-radius: 16px;
+    display: flex; gap: 12px; align-items: center; text-align: left;
+}
+.aos-portfolio img { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; }
+.aos-portfolio h3 { margin: 0 0 4px; font-size: 14px; }
+.aos-portfolio-url { font-size: 12px; color: #888; }
+
+/* ---------- About app ---------- */
+.aos-about { padding: 28px 22px; text-align: center; }
+.aos-about h2 { margin: 8px 0 14px; }
+.aos-about p { color: #ccc; line-height: 1.6; font-size: 14px; text-align: left; margin: 0 0 12px; }
+.aos-about code { background: #1c1b22; padding: 2px 6px; border-radius: 6px; font-size: 12px; }
