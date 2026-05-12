@@ -1,0 +1,68 @@
+name: Deploy to Hostinger VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Set up SSH
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H 148.230.126.79 >> ~/.ssh/known_hosts
+
+      - name: Sync infra config (compose + nginx)
+        run: |
+          rsync -avz --delete \
+            deploy/docker-compose.yml deploy/nginx.conf \
+            ubuntu@148.230.126.79:/srv/kabiu-john/
+
+      - name: Rotate previous build (for one-command rollback)
+        run: |
+          ssh ubuntu@148.230.126.79 '
+            set -e
+            cd /srv/kabiu-john
+            if [ -d web ]; then
+              rm -rf web.prev
+              cp -a web web.prev
+            fi
+            mkdir -p web
+          '
+
+      - name: Sync built site
+        run: |
+          rsync -avz --delete \
+            dist/ \
+            ubuntu@148.230.126.79:/srv/kabiu-john/web/
+
+      - name: Ensure stack is up
+        run: |
+          ssh ubuntu@148.230.126.79 '
+            cd /srv/kabiu-john
+            docker compose up -d
+            docker compose exec -T web nginx -s reload || true
+          '
