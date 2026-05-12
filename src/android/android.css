@@ -350,6 +350,31 @@
 .aos-portfolio h3 { margin: 0 0 4px; font-size: 14px; }
 .aos-portfolio-url { font-size: 12px; color: #888; }
 
+/* ---------- Toast (e.g. "Press back again to exit") ---------- */
+.aos-toast {
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--aos-dock-h) + 16px);
+    transform: translateX(-50%);
+    padding: 10px 18px;
+    background: rgba(20, 20, 28, 0.88);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 22px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
+    z-index: 40;
+    pointer-events: none;
+    white-space: nowrap;
+    animation: aos-toast-in 0.18s ease-out;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+@keyframes aos-toast-in {
+    from { opacity: 0; transform: translate(-50%, 8px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
 /* ---------- About app ---------- */
 .aos-about { padding: 28px 22px; text-align: center; }
 .aos-about h2 { margin: 8px 0 14px; }

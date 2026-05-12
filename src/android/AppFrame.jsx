@@ -37,41 +37,41 @@ const TITLES = {
 }
 
 const AppFrame = () => {
-    const {openAppId, appData, launchRect, closeApp} = useAndroidStore()
+    const {stack, goBack} = useAndroidStore()
+    const top = stack[stack.length - 1]
     const ref = useRef(null)
 
     useEffect(() => {
         const el = ref.current
-        if (!el || !openAppId) return
+        if (!el || !top) return
 
         const vw = window.innerWidth
         const vh = window.innerHeight
+        const rect = top.launchRect
 
-        // If we know where the icon was tapped, expand from there. Otherwise
-        // do a simple zoom-in from center.
-        if (launchRect) {
-            const sx = launchRect.w / vw
-            const sy = launchRect.h / vh
-            const tx = launchRect.x + launchRect.w / 2 - vw / 2
-            const ty = launchRect.y + launchRect.h / 2 - vh / 2
+        if (rect) {
+            const sx = rect.w / vw
+            const sy = rect.h / vh
+            const tx = rect.x + rect.w / 2 - vw / 2
+            const ty = rect.y + rect.h / 2 - vh / 2
             gsap.fromTo(el,
                 {x: tx, y: ty, scaleX: sx, scaleY: sy, opacity: 0, borderRadius: '28px'},
                 {x: 0, y: 0, scaleX: 1, scaleY: 1, opacity: 1, borderRadius: '0px',
                     duration: 0.32, ease: 'power3.out'})
         } else {
-            gsap.fromTo(el, {scale: 0.92, opacity: 0}, {scale: 1, opacity: 1, duration: 0.22, ease: 'power2.out'})
+            gsap.fromTo(el, {scale: 0.96, opacity: 0}, {scale: 1, opacity: 1, duration: 0.18, ease: 'power2.out'})
         }
-    }, [openAppId, launchRect])
+    }, [top?.kind, stack.length])
 
-    if (!openAppId) return null
+    if (!top) return null
 
-    const Component = APPS[openAppId]
-    const title = TITLES[openAppId] || appData?.name || ''
+    const Component = APPS[top.kind]
+    const title = TITLES[top.kind] || top.data?.name || ''
 
     return (
         <section className="aos-app-frame" ref={ref}>
             <header className="aos-app-header">
-                <button type="button" className="aos-app-back" onClick={closeApp} aria-label="Back">
+                <button type="button" className="aos-app-back" onClick={goBack} aria-label="Back">
                     <ArrowLeft size={20}/>
                 </button>
                 <h1 className="aos-app-title">{title}</h1>
@@ -80,7 +80,7 @@ const AppFrame = () => {
 
             <div className="aos-app-body">
                 {Component
-                    ? <Component data={appData}/>
+                    ? <Component data={top.data}/>
                     : <div className="aos-app-empty">Coming soon</div>}
             </div>
         </section>
