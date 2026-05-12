@@ -2,10 +2,10 @@ import {useSyncExternalStore} from 'react'
 import DesktopOS from '#desktop/DesktopOS.jsx'
 import AndroidOS from '#android/AndroidOS.jsx'
 
-// Match: anything ≤ 768px wide, OR a coarse pointer (touchscreen primary input).
-// We trust this over UA sniffing — a small browser window on a laptop should still
-// get the desktop UI unless it's actually narrow.
-const MOBILE_MEDIA = '(max-width: 768px), (pointer: coarse) and (max-width: 1024px)'
+// Anything with a coarse-pointer primary input (phones + tablets, including
+// iPad Pro in landscape) lands on the Android UI. Narrow windows ≤ 1024px also
+// get it so the mobile layout is accessible from any browser size.
+const MOBILE_MEDIA = '(pointer: coarse), (max-width: 1024px)'
 
 const subscribe = (cb) => {
     const mql = window.matchMedia(MOBILE_MEDIA)

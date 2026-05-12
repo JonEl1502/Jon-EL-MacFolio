@@ -1084,6 +1084,75 @@ const WORK_LOCATION2 = {
             ],
         },
 
+        // Macfolio (this site)
+        {
+            id: 13,
+            name: "Jon-EL's Macfolio",
+            icon: "/images/folder.png",
+            appIcon: "/macbook.png",
+            kind: "folder",
+            position: "top-170 left-5",
+            children: [
+                {
+                    id: 1301,
+                    name: "Macfolio.txt",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-10 left-10",
+                    description: [
+                        "This site. A portfolio with two faces: a macOS-style desktop UI — draggable windows, finder, dock, terminal — and an Android-style mobile UI with an app grid, persistent dock, launch animations, back-stack navigation, and pull-to-refresh.",
+                        "React + Vite + GSAP + Zustand, built once, served as static files from an Nginx container on a Hostinger VPS. Push to main → GitHub Actions builds and rsyncs in under a minute.",
+                    ],
+                },
+                {
+                    id: 1302,
+                    name: "kabiujohn.com",
+                    icon: "/images/safari.png",
+                    kind: "file",
+                    fileType: "url",
+                    href: "https://kabiujohn.com",
+                    position: "top-6 right-16",
+                },
+                {
+                    id: 1303,
+                    name: "macfolio-1.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-40 left-12",
+                    imageUrl: "/images/macfolio-1.png",
+                },
+                {
+                    id: 1304,
+                    name: "macfolio-2.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-56 right-8",
+                    imageUrl: "/images/macfolio-2.png",
+                },
+                {
+                    id: 1305,
+                    name: "macfolio-3.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-72 left-20",
+                    imageUrl: "/images/macfolio-3.png",
+                },
+                {
+                    id: 1306,
+                    name: "macfolio-4.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-88 right-20",
+                    imageUrl: "/images/macfolio-4.png",
+                },
+            ],
+        },
+
     ],
 };
 

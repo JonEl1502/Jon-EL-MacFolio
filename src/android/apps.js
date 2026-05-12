@@ -43,7 +43,9 @@ const projectApps = (locations.workhome?.children || []).map((p) => {
         id: `project-${p.id}`,
         kind: 'project',
         name: p.name,
-        icon: screenshots[0] || p.icon,
+        // Explicit appIcon wins (e.g. favicon for self-portfolio entry); else
+        // fall back to first screenshot, else the folder icon.
+        icon: p.appIcon || screenshots[0] || p.icon,
         data: {name: p.name, url, screenshots, description},
     }
 })
