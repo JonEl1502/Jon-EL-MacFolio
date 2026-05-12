@@ -13,24 +13,42 @@ const useWindowStore = create(
         openWindow: (windowKey, data = null) =>
             set((state) => {
                 if (!state.windows[windowKey]) {
-                    // Calculate offset for image windows
-                    let position = { x: 0, y: 0 };
-                    if (windowKey.startsWith('imgfile_')) {
-                        const openImageWindows = Object.keys(state.windows)
-                            .filter(key => key.startsWith('imgfile_') && state.windows[key].isOpen)
-                            .length;
-                        position = { x: openImageWindows * 30, y: openImageWindows * 30 };
-                    }
-                    
                     state.windows[windowKey] = {
                         isOpen: false,
                         zIndex: INITIAL_Z_INDEX,
                         data: null,
-                        position,
                     };
                 }
                 const win = state.windows[windowKey];
                 if (win.isOpen) return;
+
+                // Center on screen the first time the window opens (or any time
+                // its position hasn't been set yet). Subsequent opens preserve
+                // wherever the user last dragged it to.
+                if (!win.position) {
+                    const sizes = {
+                        finder:  { w: 900, h: 600 },
+                        imgfile: { w: 720, h: 400 },
+                    };
+                    const prefix = windowKey.startsWith('imgfile_') ? 'imgfile' : windowKey;
+                    const { w, h } = sizes[prefix] || { w: 700, h: 500 };
+
+                    const vw = typeof window !== 'undefined' ? window.innerWidth  : 1280;
+                    const vh = typeof window !== 'undefined' ? window.innerHeight : 800;
+
+                    let cx = Math.max(0, Math.round((vw - w) / 2));
+                    let cy = Math.max(28, Math.round((vh - h) / 2)); // leave room for top menubar
+
+                    if (windowKey.startsWith('imgfile_')) {
+                        const openImageWindows = Object.keys(state.windows)
+                            .filter(key => key.startsWith('imgfile_') && state.windows[key].isOpen)
+                            .length;
+                        cx += openImageWindows * 30;
+                        cy += openImageWindows * 30;
+                    }
+                    win.position = { x: cx, y: cy };
+                }
+
                 win.isOpen = true;
                 win.zIndex = state.nextZIndex;
                 win.data = data ?? win.data;
