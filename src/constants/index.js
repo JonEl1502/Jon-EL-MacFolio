@@ -1059,9 +1059,9 @@ const WORK_LOCATION2 = {
                     fileType: "txt",
                     position: "top-12 left-12",
                     description: [
-                        "MossBets is a native Android sports-betting app published on Google Play, built for fast pre-match and in-play wagering on a wide range of markets.",
+                        "MossBets is a sports-betting app published on Google Play, built for fast pre-match and in-play wagering on a wide range of markets.",
                         "Key surfaces include the live odds board, an in-play match center with real-time updates, a bet slip with single/accumulator support, and an account section for deposits, withdrawals, and bet history.",
-                        "Engineered as a Kotlin/Android Native client backed by a REST API, with a tight focus on responsiveness and battery-friendly real-time updates over slower mobile networks.",
+                        "Built with Flutter on top of a REST API — single codebase shipping a native-feeling Android experience, with a tight focus on smooth animations and battery-friendly real-time updates over slower mobile networks.",
                     ],
                 },
                 {
