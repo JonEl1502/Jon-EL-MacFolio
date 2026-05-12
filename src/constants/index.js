@@ -188,19 +188,19 @@ const photosLinks = [
 const gallery = [
     {
         id: 1,
-        img: "/images/gal1.png",
+        img: "/images/jonel-1.jpg",
     },
     {
         id: 2,
-        img: "/images/gal2.png",
+        img: "/images/blog3.png",
     },
     {
         id: 3,
-        img: "/images/gal3.png",
+        img: "/images/jonel-3.png",
     },
     {
         id: 4,
-        img: "/images/gal4.png",
+        img: "/images/jonel-4.png",
     },
 ];
 
@@ -1059,9 +1059,8 @@ const WORK_LOCATION2 = {
                     fileType: "txt",
                     position: "top-12 left-12",
                     description: [
-                        "MossBets is a Flutter sports-betting app on Google Play. Key surfaces: live odds board, in-play match center with real-time updates, expandable market sections, and a persistent bet slip supporting singles and accumulators with live total-odds and potential-win calculation.",
-                        "Architecture is StatelessWidget-only with GetX for reactive state and dependency injection, a repository pattern between the API and the UI, and immutable data models. Shared concerns run as singleton services — HTTP (with automatic token + signed requests), local storage (auth/betslip/settings persistence), connectivity monitoring, and a crypto service for SHA-256/HMAC request signing.",
-                        "Engineered for unreliable mobile networks: real-time connection notifications, pre-request connectivity checks, pull-to-refresh, and skeleton loaders on every list so the UI never blocks on a slow API. Dark theme tuned for the betting context — deep navy background, signal-green primary, gold accents.",
+                        "MossBets is a Flutter sports-betting app on Google Play. Live odds board, in-play match center, expandable markets, and a persistent bet slip with singles + accumulators.",
+                        "Built with GetX for state, a repository pattern over a REST API, and signed requests. Tuned for shaky mobile networks: skeleton loaders, offline detection, and pull-to-refresh throughout.",
                     ],
                 },
                 {
