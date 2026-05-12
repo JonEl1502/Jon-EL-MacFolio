@@ -21,7 +21,14 @@ const useBackHandler = () => {
 
         let canExit = false
         let exitTimer
-        let toastTimer
+        let countdownTimer
+
+        const reset = () => {
+            canExit = false
+            clearTimeout(exitTimer)
+            clearInterval(countdownTimer)
+            useAndroidStore.getState().clearToast()
+        }
 
         const onPop = () => {
             const store = useAndroidStore.getState()
@@ -33,26 +40,33 @@ const useBackHandler = () => {
 
             if (canExit) {
                 // Second back press inside the window — let the browser proceed.
-                canExit = false
-                clearTimeout(exitTimer)
+                reset()
                 return
             }
 
-            // First back from home: trap the user, re-push sentinel, show toast.
+            // First back from home: trap, re-push sentinel, show a 3-second
+            // countdown toast (2 → 1) confirming the next back exits.
             window.history.pushState(SENTINEL, '')
-            store.setToast('Press back again to exit')
-            clearTimeout(toastTimer)
-            toastTimer = setTimeout(() => useAndroidStore.getState().clearToast(), 2000)
             canExit = true
+
+            let n = 2
+            store.setToast(`Press back again to exit · ${n}`)
+            clearInterval(countdownTimer)
+            countdownTimer = setInterval(() => {
+                n -= 1
+                if (n > 0) {
+                    useAndroidStore.getState().setToast(`Press back again to exit · ${n}`)
+                }
+            }, 1500)
+
             clearTimeout(exitTimer)
-            exitTimer = setTimeout(() => { canExit = false }, 2000)
+            exitTimer = setTimeout(reset, 3000)
         }
 
         window.addEventListener('popstate', onPop)
         return () => {
             window.removeEventListener('popstate', onPop)
-            clearTimeout(toastTimer)
-            clearTimeout(exitTimer)
+            reset()
         }
     }, [])
 }
