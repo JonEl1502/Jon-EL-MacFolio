@@ -18,6 +18,8 @@ const PullToRefresh = ({children, onRefresh, className = ''}) => {
         const onTouchStart = (e) => {
             if (refreshing) return
             if (el.scrollTop > 0) return
+            // Draggable widgets (clock, weather) own their own gesture.
+            if (e.target.closest?.('.aos-draggable')) return
             startYRef.current = e.touches[0].clientY
         }
 

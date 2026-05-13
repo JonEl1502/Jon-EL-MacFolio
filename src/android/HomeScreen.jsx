@@ -136,24 +136,31 @@ const HomeScreen = () => {
     const onPage1 = new Set(PAGE_ONE_IDS)
     const page2 = homeApps.filter((a) => !onPage1.has(a.id))
 
-    // Pointer-based pager: works with mouse, touch, and pen. We don't capture
-    // the pointer until horizontal motion clears the lock threshold, so taps
-    // on app icons still produce normal click events.
+    // Pointer-based pager: works with mouse, touch, and pen. We only lock an
+    // axis once one direction *clearly* dominates past the threshold, so a
+    // mostly-horizontal swipe with a little vertical jitter still registers.
     const onPointerDown = (e) => {
-        // Widgets and dots own their own pointer events; ignore left-mouse only.
+        // Widgets and dots own their own pointer events; ignore non-primary mouse.
         if (e.target.closest?.('.aos-draggable, .aos-page-dots')) return
         if (e.pointerType === 'mouse' && e.button !== 0) return
-        startRef.current = {x: e.clientX, y: e.clientY, id: e.pointerId}
+        startRef.current = {x: e.clientX, y: e.clientY, id: e.pointerId, captured: false}
         lockRef.current = null
     }
     const onPointerMove = (e) => {
         if (!startRef.current) return
         const dx = e.clientX - startRef.current.x
         const dy = e.clientY - startRef.current.y
-        if (!lockRef.current && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
-            lockRef.current = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v'
-            if (lockRef.current === 'h') {
-                try { e.currentTarget.setPointerCapture?.(startRef.current.id) } catch { /* noop */ }
+        const ax = Math.abs(dx), ay = Math.abs(dy)
+
+        if (lockRef.current === null) {
+            if (ax >= 10 && ax > ay) lockRef.current = 'h'
+            else if (ay >= 10 && ay > ax) lockRef.current = 'v'
+
+            if (lockRef.current === 'h' && !startRef.current.captured) {
+                try {
+                    e.currentTarget.setPointerCapture?.(startRef.current.id)
+                    startRef.current.captured = true
+                } catch { /* noop */ }
             }
         }
         if (lockRef.current !== 'h') return
@@ -166,7 +173,7 @@ const HomeScreen = () => {
             if (dragX < -SWIPE_THRESHOLD && page < 1) setPage(1)
             else if (dragX > SWIPE_THRESHOLD && page > 0) setPage(0)
         }
-        if (startRef.current?.id != null) {
+        if (startRef.current?.captured) {
             try { e.currentTarget.releasePointerCapture?.(startRef.current.id) } catch { /* noop */ }
         }
         startRef.current = null
@@ -189,13 +196,15 @@ const HomeScreen = () => {
              onPointerCancel={onPointerUp}>
             <div className="aos-pager-strip" style={strip}>
                 <section className="aos-page aos-page-1">
-                    <div className="aos-widgets">
-                        <ClockWidget/>
-                        <WeatherWidget/>
-                    </div>
-                    <div className="aos-app-grid aos-app-grid-3">
-                        {page1.map((a) => <AppIcon key={a.id} app={a}/>)}
-                    </div>
+                    <PullToRefresh className="aos-page-scroll">
+                        <div className="aos-widgets">
+                            <ClockWidget/>
+                            <WeatherWidget/>
+                        </div>
+                        <div className="aos-app-grid aos-app-grid-3">
+                            {page1.map((a) => <AppIcon key={a.id} app={a}/>)}
+                        </div>
+                    </PullToRefresh>
                 </section>
                 <section className="aos-page aos-page-2">
                     <PullToRefresh className="aos-page-scroll">

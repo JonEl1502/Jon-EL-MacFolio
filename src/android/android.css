@@ -79,9 +79,17 @@
     display: flex;
     flex-direction: column;
 }
-.aos-page-1 { padding: 8px 14px 36px; }
-.aos-page-2 { /* PullToRefresh inside owns the scroll */ }
+.aos-page-1, .aos-page-2 { /* PullToRefresh inside owns the layout */ }
 .aos-page-scroll { padding: 16px 14px 36px; }
+
+/* Page 1's PTR inner becomes a flex column so the widgets area can stretch
+ * to fill the space above the app grid the way it did pre-PTR. */
+.aos-page-1 .aos-ptr-inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    box-sizing: border-box;
+}
 
 .aos-widgets {
     position: relative;
