@@ -88,7 +88,7 @@ const blogPosts = [
         date: "Aug 28, 2025",
         title: "The Ultimate Guide to Mastering Three.js for 3D Development",
         image: "/images/blog2.png",
-        link: "https://cvetsveterinaryclinic.vercel.app/#services",
+        link: "https://crystalvets.com/#services",
     },
     {
         id: 3,
@@ -599,11 +599,11 @@ const WORK_LOCATION = {
                 },
                 {
                     id: 1102,
-                    name: "cvetsveterinaryclinic.co.ke",
+                    name: "crystalvets.com",
                     icon: "/images/safari.png",
                     kind: "file",
                     fileType: "url",
-                    href: "https://cvetsveterinaryclinic.vercel.app/",
+                    href: "https://crystalvets.com/",
                     position: "top-4 left-20",
                 },
                 {
@@ -1024,11 +1024,11 @@ const WORK_LOCATION2 = {
                 },
                 {
                     id: 1102,
-                    name: "cvetsveterinaryclinic.co.ke",
+                    name: "crystalvets.com",
                     icon: "/images/safari.png",
                     kind: "file",
                     fileType: "url",
-                    href: "https://cvetsveterinaryclinic.vercel.app/",
+                    href: "https://crystalvets.com/",
                     position: "top-4 left-20",
                 },
                 {
