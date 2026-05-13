@@ -60,6 +60,10 @@
     bottom: var(--aos-dock-h);
     overflow: hidden;
     z-index: 1;
+    /* Let the browser own vertical scrolling (used by the page-2 PTR list),
+     * but reserve horizontal pans for the JS pager. Children further restrict
+     * via `touch-action: none` for the draggable widgets. */
+    touch-action: pan-y;
 }
 
 .aos-pager-strip {
@@ -75,9 +79,9 @@
     display: flex;
     flex-direction: column;
 }
-.aos-page-1 { padding: 8px 14px 14px; }
+.aos-page-1 { padding: 8px 14px 36px; }
 .aos-page-2 { /* PullToRefresh inside owns the scroll */ }
-.aos-page-scroll { padding: 16px 14px 12px; }
+.aos-page-scroll { padding: 16px 14px 36px; }
 
 .aos-widgets {
     position: relative;
@@ -157,7 +161,7 @@
 .aos-page-dots {
     position: absolute;
     left: 0; right: 0;
-    bottom: 4px;
+    bottom: 8px;
     display: flex;
     justify-content: center;
     gap: 4px;
