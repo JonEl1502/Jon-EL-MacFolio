@@ -577,24 +577,24 @@ const WORK_LOCATION = {
         },
 
 
-        // CVets Project
+        // Crystal Vets Project
         {
             id: 11,
-            name: "CVets Clinic Website",
+            name: "Crystal Vets Website",
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-92 right-80",
             children: [
                 {
                     id: 1101,
-                    name: "CVets Clinic.txt",
+                    name: "Crystal Vets.txt",
                     icon: "/images/txt.png",
                     kind: "file",
                     fileType: "txt",
                     position: "top-16 right-12",
                     description: [
-                        "CVets Clinic is a premier veterinary clinic dedicated to providing exceptional care for your",
-                        " beloved pets. Located in Nairobi, Kenya, we offer a wide range of services including wellness exams, vaccinations, surgical procedures, dental care, and emergency services. Our team of experienced veterinarians and compassionate staff are committed to ensuring the health and well-being of your furry family members. At CVets Clinic, we believe in building lasting relationships with our clients and their pets through personalized care and attention.",
+                        "Crystal Vets is a premier veterinary clinic dedicated to providing exceptional care for your",
+                        " beloved pets. Located in Nairobi, Kenya, we offer a wide range of services including wellness exams, vaccinations, surgical procedures, dental care, and emergency services. Our team of experienced veterinarians and compassionate staff are committed to ensuring the health and well-being of your furry family members. At Crystal Vets, we believe in building lasting relationships with our clients and their pets through personalized care and attention.",
                     ],
                 },
                 {
@@ -615,24 +615,24 @@ const WORK_LOCATION = {
                     position: "top-44 left-16",
                     imageUrl: "/images/cvets-1.png",
                 },
-                // {
-                //     id: 1004,
-                //     name: "image-2.png",
-                //     icon: "/images/image.png",
-                //     kind: "file",
-                //     fileType: "img",
-                //     position: "top-60 right-24",
-                //     imageUrl: "/images/meat-lovers-2.png",
-                // },
-                // {
-                //     id: 1005,
-                //     name: "image-3.png",
-                //     icon: "/images/image.png",
-                //     kind: "file",
-                //     fileType: "img",
-                //     position: "top-80 left-24",
-                //     imageUrl: "/images/meat-lovers-3.png",
-                // },
+                {
+                    id: 1104,
+                    name: "image-2.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-60 right-24",
+                    imageUrl: "/images/cvets-2.png",
+                },
+                {
+                    id: 1105,
+                    name: "image-3.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-80 left-24",
+                    imageUrl: "/images/cvets-3.png",
+                },
             ],
         },
 
@@ -1002,24 +1002,24 @@ const WORK_LOCATION2 = {
         },
 
 
-        // CVets Project
+        // Crystal Vets Project
         {
             id: 11,
-            name: "CVets Clinic Website Project",
+            name: "Crystal Vets Website Project",
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-72 left-70",
             children: [
                 {
                     id: 1101,
-                    name: "CVets Clinic.txt",
+                    name: "Crystal Vets.txt",
                     icon: "/images/txt.png",
                     kind: "file",
                     fileType: "txt",
                     position: "top-16 right-12",
                     description: [
-                        "CVets Clinic is a premier veterinary clinic dedicated to providing exceptional care for your",
-                        " beloved pets. Located in Nairobi, Kenya, we offer a wide range of services including wellness exams, vaccinations, surgical procedures, dental care, and emergency services. Our team of experienced veterinarians and compassionate staff are committed to ensuring the health and well-being of your furry family members. At CVets Clinic, we believe in building lasting relationships with our clients and their pets through personalized care and attention.",
+                        "Crystal Vets is a premier veterinary clinic dedicated to providing exceptional care for your",
+                        " beloved pets. Located in Nairobi, Kenya, we offer a wide range of services including wellness exams, vaccinations, surgical procedures, dental care, and emergency services. Our team of experienced veterinarians and compassionate staff are committed to ensuring the health and well-being of your furry family members. At Crystal Vets, we believe in building lasting relationships with our clients and their pets through personalized care and attention.",
                     ],
                 },
                 {
@@ -1039,6 +1039,24 @@ const WORK_LOCATION2 = {
                     fileType: "img",
                     position: "top-44 left-16",
                     imageUrl: "/images/cvets-1.png",
+                },
+                {
+                    id: 1104,
+                    name: "image-2.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-60 right-24",
+                    imageUrl: "/images/cvets-2.png",
+                },
+                {
+                    id: 1105,
+                    name: "image-3.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-80 left-24",
+                    imageUrl: "/images/cvets-3.png",
                 },
             ],
         },
