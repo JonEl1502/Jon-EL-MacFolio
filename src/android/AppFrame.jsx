@@ -37,17 +37,16 @@ const TITLES = {
 }
 
 const AppFrame = () => {
-    const {stack, goBack} = useAndroidStore()
-    const top = stack[stack.length - 1]
+    const {current, goBack} = useAndroidStore()
     const ref = useRef(null)
 
     useEffect(() => {
         const el = ref.current
-        if (!el || !top) return
+        if (!el || !current) return
 
         const vw = window.innerWidth
         const vh = window.innerHeight
-        const rect = top.launchRect
+        const rect = current.launchRect
 
         if (rect) {
             const sx = rect.w / vw
@@ -61,12 +60,12 @@ const AppFrame = () => {
         } else {
             gsap.fromTo(el, {scale: 0.96, opacity: 0}, {scale: 1, opacity: 1, duration: 0.18, ease: 'power2.out'})
         }
-    }, [top?.kind, stack.length])
+    }, [current?.kind])
 
-    if (!top) return null
+    if (!current) return null
 
-    const Component = APPS[top.kind]
-    const title = TITLES[top.kind] || top.data?.name || ''
+    const Component = APPS[current.kind]
+    const title = TITLES[current.kind] || current.data?.name || ''
 
     return (
         <section className="aos-app-frame" ref={ref}>
@@ -80,7 +79,7 @@ const AppFrame = () => {
 
             <div className="aos-app-body">
                 {Component
-                    ? <Component data={top.data}/>
+                    ? <Component data={current.data}/>
                     : <div className="aos-app-empty">Coming soon</div>}
             </div>
         </section>

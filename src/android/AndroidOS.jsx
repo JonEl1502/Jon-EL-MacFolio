@@ -33,8 +33,9 @@ const useBackHandler = () => {
         const onPop = () => {
             const store = useAndroidStore.getState()
 
-            if (store.stack.length > 0) {
-                store._popOne()
+            if (store.current) {
+                // Any back press while an app is open returns straight home.
+                store._clearCurrent()
                 return
             }
 
