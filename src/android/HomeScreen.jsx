@@ -3,7 +3,9 @@ import {CloudSun} from 'lucide-react'
 
 import {homeApps} from '#android/apps.js'
 import AppIcon from '#android/AppIcon.jsx'
-import PullToRefresh from '#android/PullToRefresh.jsx'
+// Pull-to-refresh temporarily disabled; re-enable by importing PullToRefresh
+// and wrapping the .aos-page-scroll divs below.
+// import PullToRefresh from '#android/PullToRefresh.jsx'
 
 // Row 1 = three "intro" system apps; row 2 = three named project apps.
 const PAGE_ONE_IDS = [
@@ -196,7 +198,7 @@ const HomeScreen = () => {
              onPointerCancel={onPointerUp}>
             <div className="aos-pager-strip" style={strip}>
                 <section className="aos-page aos-page-1">
-                    <PullToRefresh className="aos-page-scroll">
+                    <div className="aos-page-scroll">
                         <div className="aos-widgets">
                             <ClockWidget/>
                             <WeatherWidget/>
@@ -204,14 +206,14 @@ const HomeScreen = () => {
                         <div className="aos-app-grid aos-app-grid-3">
                             {page1.map((a) => <AppIcon key={a.id} app={a}/>)}
                         </div>
-                    </PullToRefresh>
+                    </div>
                 </section>
                 <section className="aos-page aos-page-2">
-                    <PullToRefresh className="aos-page-scroll">
+                    <div className="aos-page-scroll">
                         <div className="aos-app-grid">
                             {page2.map((a) => <AppIcon key={a.id} app={a}/>)}
                         </div>
-                    </PullToRefresh>
+                    </div>
                 </section>
             </div>
             <PageDots page={page} count={2} onPick={setPage}/>

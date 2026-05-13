@@ -79,16 +79,21 @@
     display: flex;
     flex-direction: column;
 }
-.aos-page-1, .aos-page-2 { /* PullToRefresh inside owns the layout */ }
-.aos-page-scroll { padding: 16px 14px 36px; }
-
-/* Page 1's PTR inner becomes a flex column so the widgets area can stretch
- * to fill the space above the app grid the way it did pre-PTR. */
-.aos-page-1 .aos-ptr-inner {
+.aos-page-1, .aos-page-2 { /* page-scroll child owns the layout */ }
+.aos-page-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px 14px 36px;
+    box-sizing: border-box;
+}
+/* Page 1 stacks its widgets and grid; widgets flex to fill the space above
+ * the bottom-anchored grid. */
+.aos-page-1 .aos-page-scroll {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
-    box-sizing: border-box;
 }
 
 .aos-widgets {
