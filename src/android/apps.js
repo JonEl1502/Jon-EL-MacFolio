@@ -35,6 +35,19 @@ const systemApps = [
     {id: 'socials',   kind: 'system-socials',   name: 'Socials',    icon: '/images/figma.png'},
 ]
 
+// Derive a high-res favicon URL from a project's live URL using Google's
+// public favicon service. Returns null for missing/invalid URLs so the
+// fallback chain in `icon` continues.
+const faviconFor = (href) => {
+    if (!href) return null
+    try {
+        const host = new URL(href).hostname
+        return `https://www.google.com/s2/favicons?domain=${host}&sz=128`
+    } catch {
+        return null
+    }
+}
+
 const projectApps = (locations.workhome?.children || []).map((p) => {
     const url = p.children?.find?.((c) => c.fileType === 'url')?.href
     const screenshots = p.children?.filter?.((c) => c.fileType === 'img').map((c) => c.imageUrl) || []
@@ -43,9 +56,9 @@ const projectApps = (locations.workhome?.children || []).map((p) => {
         id: `project-${p.id}`,
         kind: 'project',
         name: p.name,
-        // Explicit appIcon wins (e.g. favicon for self-portfolio entry); else
-        // fall back to first screenshot, else the folder icon.
-        icon: p.appIcon || screenshots[0] || p.icon,
+        // Priority: explicit appIcon (e.g. hand-saved brand logo) → site
+        // favicon → first screenshot → folder icon.
+        icon: p.appIcon || faviconFor(url) || screenshots[0] || p.icon,
         data: {name: p.name, url, screenshots, description},
     }
 })
