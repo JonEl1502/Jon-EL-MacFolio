@@ -60,6 +60,9 @@
     bottom: var(--aos-dock-h);
     overflow: hidden;
     z-index: 1;
+    /* Browser handles vertical pans (page scroll); horizontal pans are routed
+     * to our JS swipe pager. */
+    touch-action: pan-y;
 }
 
 .aos-pager-strip {
@@ -75,12 +78,18 @@
     display: flex;
     flex-direction: column;
 }
-.aos-page-1, .aos-page-2 { /* PullToRefresh inside owns the scroll */ }
-.aos-page-scroll { padding: 16px 14px 36px; }
+.aos-page-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px 14px 36px;
+}
 
-/* Page 1's PTR inner becomes a flex column so the widgets area can stretch
+/* Page 1's scroller becomes a flex column so the widgets area can stretch
  * to fill the space above the bottom-anchored grid. */
-.aos-page-1 .aos-ptr-inner {
+.aos-page-1 .aos-page-scroll {
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -160,6 +169,14 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 18px 6px;
     padding: 0 6px 4px;
+}
+
+.aos-page-hint {
+    margin: 12px 0 0;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.2px;
+    color: rgba(255, 255, 255, 0.55);
 }
 
 .aos-page-dots {
