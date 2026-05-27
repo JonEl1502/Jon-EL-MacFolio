@@ -65,16 +65,19 @@ const projectApps = (locations.workhome?.children || []).map((p) => {
     const screenshots = p.children?.filter?.((c) => c.fileType === 'img').map((c) => c.imageUrl) || []
     const description = p.children?.find?.((c) => c.fileType === 'txt')?.description || []
 
-    // Priority: explicit appIcon (hand-saved brand logo) → site favicon →
-    // first screenshot → folder icon. Track which one was chosen so the
-    // tile can render screenshots cover-full (cropped to a square like
-    // the Portfolio list does) while keeping logos centered.
+    // Priority: explicit appIcon (hand-saved brand logo) → first project
+    // screenshot → site favicon → folder icon. Screenshots beat favicons
+    // because most projects (Vercel-deployed apps especially) ship no real
+    // favicon and Google's S2 service returns a generic globe placeholder
+    // for them. Track which fallback was chosen so screenshots can render
+    // cover-full (cropped square, like the Portfolio list) while logos
+    // stay centered inside the gradient tile.
     let icon, iconFit
     if (p.appIcon) { icon = p.appIcon; iconFit = 'contain' }
+    else if (screenshots[0]) { icon = screenshots[0]; iconFit = 'cover' }
     else {
         const fav = faviconFor(url)
         if (fav) { icon = fav; iconFit = 'contain' }
-        else if (screenshots[0]) { icon = screenshots[0]; iconFit = 'cover' }
         else { icon = p.icon; iconFit = 'contain' }
     }
 
