@@ -38,10 +38,22 @@ const systemApps = [
 // Derive a high-res favicon URL from a project's live URL using Google's
 // public favicon service. Returns null for missing/invalid URLs so the
 // fallback chain in `icon` continues.
+//
+// Aggregator domains (Play Store, App Store, code hosts) return the
+// aggregator's own icon, not the project's identity, so skip them and
+// let the next fallback (screenshot) win.
+const AGGREGATOR_HOSTS = new Set([
+    'play.google.com',
+    'apps.apple.com',
+    'github.com',
+    'gitlab.com',
+    'bitbucket.org',
+])
 const faviconFor = (href) => {
     if (!href) return null
     try {
         const host = new URL(href).hostname
+        if (AGGREGATOR_HOSTS.has(host)) return null
         return `https://www.google.com/s2/favicons?domain=${host}&sz=128`
     } catch {
         return null
