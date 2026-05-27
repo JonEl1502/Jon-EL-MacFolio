@@ -12,10 +12,12 @@ const AppIcon = ({app}) => {
             rect ? {x: rect.left, y: rect.top, w: rect.width, h: rect.height} : null)
     }
 
+    const tileClass = `aos-app-icon-tile${app.iconFit === 'cover' ? ' aos-app-icon-tile-cover' : ''}`
+
     return (
         <button ref={ref} type="button" className="aos-app-icon" onClick={handleTap}>
             <span
-                className="aos-app-icon-tile"
+                className={tileClass}
                 style={{background: `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)`}}>
                 <img src={app.icon} alt="" draggable="false"/>
             </span>

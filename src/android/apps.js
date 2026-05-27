@@ -64,13 +64,26 @@ const projectApps = (locations.workhome?.children || []).map((p) => {
     const url = p.children?.find?.((c) => c.fileType === 'url')?.href
     const screenshots = p.children?.filter?.((c) => c.fileType === 'img').map((c) => c.imageUrl) || []
     const description = p.children?.find?.((c) => c.fileType === 'txt')?.description || []
+
+    // Priority: explicit appIcon (hand-saved brand logo) → site favicon →
+    // first screenshot → folder icon. Track which one was chosen so the
+    // tile can render screenshots cover-full (cropped to a square like
+    // the Portfolio list does) while keeping logos centered.
+    let icon, iconFit
+    if (p.appIcon) { icon = p.appIcon; iconFit = 'contain' }
+    else {
+        const fav = faviconFor(url)
+        if (fav) { icon = fav; iconFit = 'contain' }
+        else if (screenshots[0]) { icon = screenshots[0]; iconFit = 'cover' }
+        else { icon = p.icon; iconFit = 'contain' }
+    }
+
     return {
         id: `project-${p.id}`,
         kind: 'project',
         name: p.name,
-        // Priority: explicit appIcon (e.g. hand-saved brand logo) → site
-        // favicon → first screenshot → folder icon.
-        icon: p.appIcon || faviconFor(url) || screenshots[0] || p.icon,
+        icon,
+        iconFit,
         data: {name: p.name, url, screenshots, description},
     }
 })
