@@ -6,6 +6,7 @@
 // macOS view and the mobile Android view stay in sync automatically.
 
 import {locations} from '#constants'
+import {typeList} from '#constants/projectTypes.js'
 
 // Material You-ish gradient palettes — light, pastel, two-stop linear.
 const palettes = [
@@ -31,6 +32,9 @@ const systemApps = [
     {id: 'articles',  kind: 'system-articles',  name: 'Articles',   icon: '/images/safari.png'},
     {id: 'gallery',   kind: 'system-gallery',   name: 'Gallery',    icon: '/images/photos.png'},
     {id: 'skills',    kind: 'system-skills',    name: 'Skills',     icon: '/images/terminal.png'},
+    {id: 'expertise', kind: 'system-expertise', name: 'Expertise',  icon: '/images/figma.png'},
+    {id: 'timeline',  kind: 'system-timeline',  name: 'Timeline',   icon: '/images/folder3.png'},
+    {id: 'otherworks',kind: 'system-otherworks',name: 'Other Works',icon: '/images/folder2.png'},
     {id: 'about',     kind: 'system-about',     name: 'About Me',   icon: '/images/contact.png'},
     {id: 'socials',   kind: 'system-socials',   name: 'Socials',    icon: '/images/figma.png'},
 ]
@@ -60,10 +64,14 @@ const faviconFor = (href) => {
     }
 }
 
-const projectApps = (locations.workhome?.children || []).map((p) => {
+// Only projects flagged for the home (desktop_home !== false) become app icons.
+const projectApps = (locations.workhome?.children || []).filter((p) => p.desktop_home !== false).map((p) => {
     const url = p.children?.find?.((c) => c.fileType === 'url')?.href
     const screenshots = p.children?.filter?.((c) => c.fileType === 'img').map((c) => c.imageUrl) || []
-    const description = p.children?.find?.((c) => c.fileType === 'txt')?.description || []
+    // Prefer a README.md (the fuller write-up) for the mobile project view;
+    // otherwise fall back to the first text file's description.
+    const txts = p.children?.filter?.((c) => c.fileType === 'txt') || []
+    const description = (txts.find((c) => /readme/i.test(c.name)) || txts[0])?.description || []
 
     // Priority: explicit appIcon (hand-saved brand logo) → first project
     // screenshot → site favicon → folder icon. Screenshots beat favicons
@@ -81,12 +89,19 @@ const projectApps = (locations.workhome?.children || []).map((p) => {
         else { icon = p.icon; iconFit = 'contain' }
     }
 
+    const types = typeList(p.project_type)
+
+    // Mobile apps render their logo edge-to-edge in the rounded tile so it
+    // reads like a phone home-screen app icon.
+    if (types.includes('mob_app')) iconFit = 'cover'
+
     return {
         id: `project-${p.id}`,
         kind: 'project',
         name: p.name,
         icon,
         iconFit,
+        types,
         data: {name: p.name, url, screenshots, description},
     }
 })

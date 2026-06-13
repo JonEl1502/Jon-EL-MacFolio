@@ -25,3 +25,7 @@ dist-ssr
 
 # Claude Code per-project state
 .claude/
+
+# Pristine (unblurred) source screenshots — kept locally, never committed.
+# Only the blurred copies in public/images are public-safe.
+design-assets/

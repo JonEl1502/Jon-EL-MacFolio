@@ -6,5 +6,8 @@ import Text from "#windows/Text.jsx";
 import ImageViewer from "#windows/ImageViewer.jsx";
 import Contact from "#windows/Contact.jsx";
 import Gallery from "#windows/Gallery.jsx";
+import Expertise from "#windows/Expertise.jsx";
+import Timeline from "#windows/Timeline.jsx";
+import OtherWorks from "#windows/OtherWorks.jsx";
 
-export {Terminal, Safari, Resume, Finder, Text, ImageViewer, Contact, Gallery};
+export {Terminal, Safari, Resume, Finder, Text, ImageViewer, Contact, Gallery, Expertise, Timeline, OtherWorks};

@@ -259,8 +259,26 @@
     border-radius: 18px;
     display: grid;
     place-items: center;
+    position: relative;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.35);
     transition: transform 0.15s ease;
+}
+.aos-app-icon-badges {
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+    display: flex;
+    gap: 2px;
+}
+.aos-app-icon-badge {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    border: 1.5px solid rgba(17, 16, 20, 0.9);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
 .aos-app-icon-tile img {
     width: 36px;
@@ -560,4 +578,41 @@
 .aos-about { padding: 28px 22px; text-align: center; }
 .aos-about h2 { margin: 8px 0 14px; }
 .aos-about p { color: #ccc; line-height: 1.6; font-size: 14px; text-align: left; margin: 0 0 12px; }
+
+/* ---------- Expertise app ---------- */
+.aos-expertise { padding: 16px; display: grid; gap: 12px; }
+.aos-expertise-card { background: #1c1b22; border-radius: 18px; padding: 16px 18px; }
+.aos-expertise-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; }
+.aos-expertise-card p { margin: 0; font-size: 13px; line-height: 1.55; color: #ccc; }
+
+/* ---------- Timeline app ---------- */
+.aos-timeline { list-style: none; padding: 20px 18px 28px; margin: 0; position: relative; }
+.aos-timeline::before {
+    content: ""; position: absolute; left: 25px; top: 24px; bottom: 24px;
+    width: 2px; background: rgba(255, 255, 255, 0.12);
+}
+.aos-timeline-item { position: relative; padding-left: 28px; margin-bottom: 22px; }
+.aos-timeline-dot {
+    position: absolute; left: -1px; top: 5px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: linear-gradient(135deg, #7c5cff, #2cc1ff);
+    border: 3px solid #111014;
+}
+.aos-timeline-body { background: #1c1b22; border-radius: 16px; padding: 14px 16px; }
+.aos-timeline-period { font-size: 11px; color: #7c9eff; text-transform: uppercase; letter-spacing: 0.5px; }
+.aos-timeline-body h3 { margin: 4px 0 2px; font-size: 15px; font-weight: 700; }
+.aos-timeline-org { font-size: 13px; color: #aaa; }
+.aos-timeline-body p { margin: 8px 0 0; font-size: 13px; line-height: 1.5; color: #ccc; }
+
+/* ---------- Other Works app ---------- */
+.aos-otherworks { padding: 16px; display: grid; gap: 14px; }
+.aos-ow-card { background: #1c1b22; border-radius: 18px; padding: 16px 18px; }
+.aos-ow-card h3 { margin: 0 0 4px; font-size: 16px; font-weight: 700; }
+.aos-ow-blurb { margin: 0 0 8px; font-size: 13px; color: #aaa; }
+.aos-ow-readme { margin: 0 0 10px; font-size: 13px; line-height: 1.55; color: #ccc; }
+.aos-ow-shots { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.aos-ow-shots button { background: transparent; border: 0; padding: 0; cursor: pointer; }
+.aos-ow-shots img {
+    width: 96px; height: 72px; object-fit: cover; border-radius: 10px; display: block;
+}
 .aos-about code { background: #1c1b22; padding: 2px 6px; border-radius: 6px; font-size: 12px; }

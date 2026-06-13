@@ -11,7 +11,7 @@ import WindowControls from "#components/WindowControls.jsx";
 import WindowWrapper from "#hoc/WindowWrapper.jsx";
 
 const Finder = () => {
-    const {openWindow, focusWindow, windows} = useWindowStore();
+    const {openWindow, focusWindow, windows, openImages} = useWindowStore();
     const {activeLocation, setActiveLocation} = useLocationStore();
 
     // Simple UI render reuse
@@ -44,22 +44,14 @@ const Finder = () => {
         if (item.kind === "folder") return setActiveLocation(item);
         if (["fig", "url"].includes(item.fileType) && item.href) return window.open(item.href, "_blank");
         if (item.fileType === "img" && item.imageUrl) {
-            // Check if image is already open
-            const existingWindow = Object.entries(windows).find(([key, window]) => 
-                key.startsWith(`imgfile_${item.id}_`) && window.isOpen
+            // Open one viewer per folder, holding all of that folder's images so
+            // the user can page next/prev through them.
+            const imgs = (activeLocation?.children || []).filter(
+                (c) => c.fileType === "img" && c.imageUrl
             );
-            
-            if (existingWindow) {
-                // Focus existing window instead of opening new one
-                focusWindow(existingWindow[0]);
-                return;
-            }
-            
-            const uniqueWindowKey = `imgfile_${item.id}_${Date.now()}`;
-            openWindow(uniqueWindowKey, {
-                src: item.imageUrl,
-                title: item.name
-            });
+            const index = Math.max(0, imgs.findIndex((c) => c.id === item.id));
+            const gallery = imgs.map((c) => ({ src: c.imageUrl, title: c.name }));
+            openImages(`imgfile_folder_${activeLocation?.id ?? "x"}`, gallery, index);
         }
     };
 
@@ -81,7 +73,7 @@ const Finder = () => {
             <ul className="content">
                 {((activeLocation?.type === 'work') ? locations.workhome.children : activeLocation?.children)?.map((item) => (
                     <li key={item.id}
-                        className={clsx("folder-item cursor-pointer", item.position)}
+                        className="folder-item cursor-pointer"
                         onClick={() => {
                             openItem(item);
                         }}

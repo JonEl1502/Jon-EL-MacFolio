@@ -84,6 +84,34 @@ const useWindowStore = create(
                 }
             }),
 
+        // Open an image-viewer window holding a whole gallery (so it can cycle
+        // next/prev). `gallery` is [{src, title}], `index` is the start image.
+        openImages: (windowKey, gallery, index = 0) =>
+            set((state) => {
+                if (!state.windows[windowKey]) {
+                    state.windows[windowKey] = { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null };
+                }
+                const win = state.windows[windowKey];
+                if (!win.position) {
+                    const w = 720, h = 400;
+                    const vw = typeof window !== 'undefined' ? window.innerWidth : 1280;
+                    const vh = typeof window !== 'undefined' ? window.innerHeight : 800;
+                    win.position = { x: Math.max(0, Math.round((vw - w) / 2)), y: Math.max(28, Math.round((vh - h) / 2)) };
+                }
+                win.isOpen = true;
+                win.zIndex = state.nextZIndex++;
+                win.data = { gallery, index };
+                if (state.nextZIndex > 10000) state.nextZIndex = INITIAL_Z_INDEX + 1;
+            }),
+
+        // Shallow-merge a patch into an open window's data (used for next/prev).
+        setWindowData: (windowKey, patch) =>
+            set((state) => {
+                if (state.windows[windowKey]) {
+                    state.windows[windowKey].data = { ...(state.windows[windowKey].data || {}), ...patch };
+                }
+            }),
+
     })),
 );
 

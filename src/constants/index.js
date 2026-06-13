@@ -5,6 +5,21 @@ const navLinks = [
         type: "finder",
     },
     {
+        id: 5,
+        name: "Expertise",
+        type: "expertise",
+    },
+    {
+        id: 6,
+        name: "Timeline",
+        type: "timeline",
+    },
+    {
+        id: 7,
+        name: "Other Works",
+        type: "otherworks",
+    },
+    {
         id: 3,
         name: "Contact",
         type: "contact",
@@ -64,6 +79,25 @@ const dockApps = [
         id: "terminal",
         name: "Skills", // was "Terminal"
         icon: "/images/terminal.png",
+        canOpen: true,
+    },
+    {
+        id: "expertise",
+        name: "Expertise",
+        // Placeholder icon — drop a custom PNG in /public/images and update this.
+        icon: "/images/figma.png",
+        canOpen: true,
+    },
+    {
+        id: "timeline",
+        name: "Timeline",
+        icon: "/images/folder3.png",
+        canOpen: true,
+    },
+    {
+        id: "otherworks",
+        name: "Other Works",
+        icon: "/images/folder2.png",
         canOpen: true,
     },
     {
@@ -204,6 +238,130 @@ const gallery = [
     },
 ];
 
+// ---------------------------------------------------------------------------
+// Expertise — professional competencies / services, distinct from the raw
+// tech stack in `techStack`. Each item is a higher-level capability.
+// EDIT ME: tweak the blurbs and add/remove items to match your real offering.
+// ---------------------------------------------------------------------------
+const expertise = [
+    {
+        id: 1,
+        title: "DUNS Number Application",
+        blurb:
+            "End-to-end guidance through the Dun & Bradstreet D-U-N-S registration — preparing business details, submitting the application, and following through to issuance so the number is ready for app-store, grant, and vendor onboarding requirements.",
+        // Placeholder images — swap these SVGs for real screenshots when ready.
+        screenshots: ["/images/dun-no-1.svg", "/images/dun-no-2.svg"],
+    },
+    {
+        id: 2,
+        title: "Search Engine Optimization (SEO)",
+        blurb:
+            "On-page and technical SEO: semantic markup, metadata, sitemaps, Core Web Vitals, and content structure that helps sites rank and load fast.",
+        screenshots: ["/images/seo-1.svg"],
+    },
+    {
+        id: 3,
+        title: "Design",
+        blurb:
+            "Interface and visual design — layout, typography, color systems, and design systems that keep products consistent and on-brand.",
+        screenshots: ["/images/design-1.svg"],
+    },
+    {
+        id: 4,
+        title: "Prototyping",
+        blurb:
+            "Rapid interactive prototypes that validate ideas and flows before a line of production code is written.",
+        screenshots: ["/images/prototype-1.svg"],
+    },
+    // EDIT ME: add more expertise areas here, same shape
+    // { id, title, blurb, screenshots: [..urls] }. `screenshots` is optional.
+];
+
+// ---------------------------------------------------------------------------
+// Timeline — career / work history over a long span, newest first.
+// EDIT ME: replace the placeholder entries with your real roles & dates.
+// `period` is free text (e.g. "2024 — Present", "2021 — 2023").
+// ---------------------------------------------------------------------------
+const timeline = [
+    {
+        id: 1,
+        period: "2024 — Present",
+        role: "Role / Title here",
+        org: "Company or Client",
+        summary:
+            "Placeholder — describe what you do here: the product, the stack, and the impact. One or two sentences.",
+    },
+    {
+        id: 2,
+        period: "2022 — 2024",
+        role: "Role / Title here",
+        org: "Company or Client",
+        summary:
+            "Placeholder — a previous chapter. Swap in the real role, dates, and a short summary of what you shipped.",
+    },
+    {
+        id: 3,
+        period: "2020 — 2022",
+        role: "Role / Title here",
+        org: "Company or Client",
+        summary:
+            "Placeholder — an earlier role. Keep these newest-first so the timeline reads top to bottom.",
+    },
+    // EDIT ME: add earlier entries here, same shape { id, period, role, org, summary }.
+];
+
+// ---------------------------------------------------------------------------
+// Other Works — small side projects that don't warrant a full portfolio
+// entry. Shown lightly: a short README write-up plus screenshots (and an
+// optional live link). `readme` is an array of paragraphs.
+// EDIT ME: replace placeholder copy and screenshots with the real thing.
+// Screenshots below reuse existing images purely as placeholders.
+// ---------------------------------------------------------------------------
+const otherWorks = [
+    {
+        id: 1,
+        name: "SokaPro",
+        blurb: "Short one-liner about SokaPro.",
+        url: "",
+        readme: [
+            "SokaPro — placeholder README. Describe what it is, why you built it, and the stack. Swap the screenshot for a real capture when ready.",
+        ],
+        screenshots: ["/images/sokapro-1.svg"],
+    },
+    {
+        id: 2,
+        name: "BidsMoto",
+        blurb: "Short one-liner about BidsMoto.",
+        url: "",
+        readme: [
+            "BidsMoto — placeholder README. Add the details whenever you're ready.",
+        ],
+        screenshots: ["/images/bidsmoto-1.svg"],
+    },
+    {
+        id: 3,
+        name: "Tiko254",
+        blurb: "Short one-liner about Tiko254.",
+        url: "",
+        readme: [
+            "Tiko254 — placeholder README. Add the details whenever you're ready.",
+        ],
+        screenshots: ["/images/tiko254-1.svg"],
+    },
+    {
+        id: 4,
+        name: "Micro-Fin USSD",
+        blurb: "Short one-liner about the Micro-Fin USSD service.",
+        url: "",
+        readme: [
+            "Micro-Fin USSD — placeholder README. Add the details whenever you're ready.",
+        ],
+        screenshots: ["/images/microfin-ussd-1.svg"],
+    },
+    // EDIT ME: add more small works here, same shape
+    // { id, name, blurb, url, readme: [..paragraphs], screenshots: [..urls] }.
+];
+
 export {
     navLinks,
     navIcons,
@@ -213,6 +371,9 @@ export {
     socials,
     photosLinks,
     gallery,
+    expertise,
+    timeline,
+    otherWorks,
 };
 
 const WORK_LOCATION = {
@@ -653,6 +814,9 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-5 left-5",
+            // desktop_home: set to false to hide this project from the desktop/mobile home.
+            desktop_home: true,
+            project_type: "web_app",
             children: [
                 {
                     id: 501,
@@ -705,6 +869,8 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-53 left-5",
+            desktop_home: true,
+            project_type: "web_app",
             children: [
                 {
                     id: 601,
@@ -757,6 +923,8 @@ const WORK_LOCATION2 = {
             icon: "/images/folder2.png",
             kind: "folder",
             position: "top-93 right-15",
+            desktop_home: true,
+            project_type: "web_app",
             children: [
                 {
                     id: 701,
@@ -824,6 +992,8 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-85 left-5",
+            desktop_home: true,
+            project_type: "web_app",
             children: [
                 {
                     id: 801,
@@ -878,6 +1048,8 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-5 left-70",
+            desktop_home: true,
+            project_type: "web_app",
             children: [
                 {
                     id: 901,
@@ -948,6 +1120,8 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-33 left-70",
+            desktop_home: true,
+            project_type: "web_app",
             children: [
                 {
                     id: 1001,
@@ -1009,6 +1183,8 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-72 left-70",
+            desktop_home: true,
+            project_type: "web_app",
             children: [
                 {
                     id: 1101,
@@ -1066,8 +1242,11 @@ const WORK_LOCATION2 = {
             id: 12,
             name: "MossBets App",
             icon: "/images/folder.png",
+            appIcon: "/images/mossbets-1.png",
             kind: "folder",
             position: "top-130 left-70",
+            desktop_home: true,
+            project_type: "mob_app",
             children: [
                 {
                     id: 1201,
@@ -1110,6 +1289,8 @@ const WORK_LOCATION2 = {
             appIcon: "/macbook.png",
             kind: "folder",
             position: "top-170 left-5",
+            desktop_home: true,
+            project_type: "web_app",
             children: [
                 {
                     id: 1301,
@@ -1167,6 +1348,319 @@ const WORK_LOCATION2 = {
                     fileType: "img",
                     position: "top-88 right-20",
                     imageUrl: "/images/macfolio-4.png",
+                },
+            ],
+        },
+
+        // Fleeks Dashboard
+        // EDIT ME: replace the placeholder copy and swap the screenshot SVGs
+        // for real captures when ready.
+        {
+            id: 14,
+            name: "Fleeks Dashboard",
+            icon: "/images/folder.png",
+            // appIcon = the app/site logo shown on the mobile app grid AND the
+            // desktop home. Set this per project to use a real brand icon.
+            appIcon: "/images/fleeks-favicon.png",
+            kind: "folder",
+            position: "top-210 left-5",
+            desktop_home: true,
+            project_type: "web_app",
+            children: [
+                {
+                    id: 1410,
+                    name: "fleeks.io",
+                    icon: "/images/safari.png",
+                    kind: "file",
+                    fileType: "url",
+                    href: "https://fleeks.io",
+                    position: "top-8 right-16",
+                },
+                {
+                    id: 1401,
+                    name: "Fleeks Dashboard.txt",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-12 left-12",
+                    description: [
+                        "Fleeks is a bulk mobile-messaging platform for businesses across Africa — SMS, USSD, Voice, Airtime and Mobile Data APIs with 80+ telco connections in one unified engagement console.",
+                        "I was responsible for upgrading its UI and the underlying tech.",
+                        "The dashboard covers wallet & billing, a campaign outbox with live delivery analytics, contact management, premium & shortcode SMS, and admin tooling.",
+                        "Note: figures in these screenshots are blurred demo/client data.",
+                    ],
+                },
+                {
+                    id: 1411,
+                    name: "README.md",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-12 right-12",
+                    description: [
+                        "Fleeks — Bulk Mobile Messaging Platform",
+                        "Fleeks is a unified engagement platform for businesses across Africa: SMS, USSD, Voice, Airtime and Mobile Data APIs over 80+ telco connections — bridging enterprise-grade marketing automation with developer APIs.",
+                        "— My role —",
+                        "I led the upgrade of the product's UI and its underlying tech.",
+                        "— Authentication —",
+                        "Sign in by phone (with country code, e.g. KE +254) or by email, with password visibility toggle, remember-me, and account creation.",
+                        "— Dashboard —",
+                        "Wallet overview (balance, top-up, alert threshold), message statistics (sent / delivered / failed / pending), analytics charts (delivery, trends, costs, balance) and SMS usage — in both light and dark themes.",
+                        "— Messaging —",
+                        "Bulk SMS outbox (sent / scheduled / pending) with per-campaign delivery breakdowns, plus Premium SMS reports, Shortcode and Alphanumeric sender IDs. Compose supports a sender ID, recipients or saved contacts, campaign naming, CSV/file upload, and scheduling.",
+                        "— Contacts & operations —",
+                        "Contact groups with CSV import and custom fields, an Inbox, USSD, Billing (BulkRate Card and invoices), plus Admin and user management.",
+                        "— Stack —",
+                        "React front-end with a PHP backend.",
+                        "Note: all figures in the screenshots are blurred demo/client data.",
+                    ],
+                },
+                {
+                    id: 1402,
+                    name: "fleeks-1.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-44 left-16",
+                    imageUrl: "/images/fleeks-1.png",
+                },
+                {
+                    id: 1403,
+                    name: "fleeks-2.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-44 right-16",
+                    imageUrl: "/images/fleeks-2.png",
+                },
+                {
+                    id: 1404,
+                    name: "fleeks-3.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-72 left-16",
+                    imageUrl: "/images/fleeks-3.png",
+                },
+                {
+                    id: 1405,
+                    name: "fleeks-4.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-72 right-16",
+                    imageUrl: "/images/fleeks-4.png",
+                },
+                {
+                    id: 1406,
+                    name: "fleeks-5.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-96 left-16",
+                    imageUrl: "/images/fleeks-5.png",
+                },
+                {
+                    id: 1407,
+                    name: "fleeks-6.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-96 right-16",
+                    imageUrl: "/images/fleeks-6.png",
+                },
+                {
+                    id: 1408,
+                    name: "fleeks-7.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-[28rem] left-16",
+                    imageUrl: "/images/fleeks-7.png",
+                },
+                {
+                    id: 1409,
+                    name: "fleeks-8.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-[28rem] right-16",
+                    imageUrl: "/images/fleeks-8.png",
+                },
+            ],
+        },
+
+        // MossBets Dashboard (PHP Backend)
+        {
+            id: 15,
+            name: "MossBets Dashboard + PHP BE",
+            icon: "/images/folder.png",
+            appIcon: "/images/mossbets-logo.png",
+            // Wide wordmark — show it sitting on a (yellow) folder on the desktop home.
+            iconOnFolder: true,
+            folderImg: "/images/folder-yellow.png",
+            kind: "folder",
+            position: "top-210 left-70",
+            desktop_home: true,
+            project_type: ["web_app", "be_app"],
+            children: [
+                {
+                    id: 1501,
+                    name: "MossBets BO.txt",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-12 left-12",
+                    description: [
+                        "MossBets Back Office — the internal admin/operator console for the MossBets betting platform (Vue 3 front-end over a PHP REST backend). I upgraded its UI and underlying tech.",
+                        "Open README.md for the full write-up. All figures in the screenshots are blurred demo data.",
+                    ],
+                },
+                {
+                    id: 1502,
+                    name: "README.md",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-12 right-12",
+                    description: [
+                        "MossBets Back Office (BO) — Betting Operations Console",
+                        "The MossBets BO is the internal admin/operator console for the MossBets sportsbook & casino platform: customer management, transactions, sportsbook & bets, bonuses, taxes, SMS campaigns, reporting and system administration — all over a PHP REST backend.",
+                        "— My role —",
+                        "I led the upgrade of the BO's UI and its underlying tech.",
+                        "— Highlights —",
+                        "Secure login with OTP verification; a date-range dashboard with revenue / stake / wins / liabilities KPIs and charts; deep customer search (phone, M-Pesa code, bet ref, profile & account IDs) opening full 360° profiles with account, financial and betting summaries.",
+                        "Bulk SMS with audience targeting (profile status, game type, balance, depositor type, date range), live character/page counting, an SMS preview, and send-now or scheduled delivery.",
+                        "Granular RBAC: roles plus 120+ individual permissions per system user, with create/edit-user flows and confirm dialogs.",
+                        "— Responsive tables —",
+                        "A reusable DataTable component makes every table responsive: it switches to a label/value card view on mobile (≤768px), hides lower-priority columns per breakpoint (hidden-mobile / hidden-tablet), and adds momentum scrolling with custom scrollbars — keeping dense operational data usable on phone, tablet and desktop.",
+                        "— Stack —",
+                        "Vue 3 + Vite, Vuex (persisted state) and Vue Router; Tailwind CSS + Sass; Axios against a PHP REST API; Chart.js for analytics, SweetAlert2 for dialogs, vue-pincode-input for OTP, and SheetJS (xlsx) for report exports.",
+                        "Note: all figures, names, numbers and the URL in the screenshots are blurred/redacted demo data.",
+                    ],
+                },
+                {
+                    id: 1503,
+                    name: "mossbets-web-1.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-44 left-16",
+                    imageUrl: "/images/mossbets-web-1.png",
+                },
+                {
+                    id: 1504,
+                    name: "mossbets-web-2.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-44 right-16",
+                    imageUrl: "/images/mossbets-web-2.png",
+                },
+                {
+                    id: 1505,
+                    name: "mossbets-web-3.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-72 left-16",
+                    imageUrl: "/images/mossbets-web-3.png",
+                },
+                {
+                    id: 1506,
+                    name: "mossbets-web-4.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-72 right-16",
+                    imageUrl: "/images/mossbets-web-4.png",
+                },
+                {
+                    id: 1507,
+                    name: "mossbets-web-5.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-96 left-16",
+                    imageUrl: "/images/mossbets-web-5.png",
+                },
+                {
+                    id: 1508,
+                    name: "mossbets-web-6.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-96 right-16",
+                    imageUrl: "/images/mossbets-web-6.png",
+                },
+                {
+                    id: 1509,
+                    name: "mossbets-web-7.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-[28rem] left-16",
+                    imageUrl: "/images/mossbets-web-7.png",
+                },
+                {
+                    id: 1510,
+                    name: "mossbets-web-8.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-[28rem] right-16",
+                    imageUrl: "/images/mossbets-web-8.png",
+                },
+                {
+                    id: 1511,
+                    name: "mossbets-web-9.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-[34rem] left-16",
+                    imageUrl: "/images/mossbets-web-9.png",
+                },
+                {
+                    id: 1512,
+                    name: "mossbets-web-10.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-[34rem] right-16",
+                    imageUrl: "/images/mossbets-web-10.png",
+                },
+            ],
+        },
+
+        // MossBets B2B Dashboard (PHP Backend)
+        {
+            id: 16,
+            name: "MossBets B2B Dashboard + PHP BE",
+            icon: "/images/folder.png",
+            kind: "folder",
+            position: "top-250 left-5",
+            desktop_home: true,
+            project_type: ["web_app", "be_app"],
+            children: [
+                {
+                    id: 1601,
+                    name: "MossBets B2B Dashboard.txt",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-12 left-12",
+                    description: [
+                        "MossBets B2B Dashboard with a PHP backend — placeholder description. Add the partner/agent-facing features and the PHP API behind it.",
+                    ],
+                },
+                {
+                    id: 1602,
+                    name: "mossbets-b2b-1.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-44 left-16",
+                    imageUrl: "/images/mossbets-b2b-1.svg",
                 },
             ],
         },
@@ -1293,6 +1787,9 @@ const WINDOW_CONFIG = {
     photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
     gallery: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
     terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+    expertise: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+    timeline: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+    otherworks: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
     txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
     imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };

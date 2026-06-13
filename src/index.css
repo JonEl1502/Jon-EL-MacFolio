@@ -314,7 +314,7 @@ body {
         @apply absolute w-3xl left-40 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
 
         .sidebar {
-            @apply w-48 bg-gray-50 border-r border-gray-200 flex flex-col p-5 space-y-3;
+            @apply w-48 bg-gray-50 border-r border-gray-200 flex flex-col p-5 space-y-3 overflow-y-auto max-h-[60vh];
 
             h3 {
                 @apply text-xs font-medium text-gray-400 mb-1;
@@ -338,17 +338,18 @@ body {
         }
 
         .content {
-            @apply flex-1 p-8 bg-white max-w-2xl relative overflow-y-auto max-h-[60vh] pr-4;
+            /* Neatly arranged grid inside folders (the desktop itself stays scattered). */
+            @apply flex-1 p-8 bg-white max-w-2xl grid grid-cols-3 gap-x-6 gap-y-8 content-start overflow-y-auto max-h-[60vh] pr-4;
 
             li {
-                @apply absolute flex items-center flex-col gap-3 cursor-pointer;
+                @apply flex items-center flex-col gap-3 cursor-pointer;
 
                 img {
                     @apply object-contain object-center size-16 hover:scale-105 transition-transform;
                 }
 
                 p {
-                    @apply text-sm text-center font-medium w-40 break-words;
+                    @apply text-sm text-center font-medium w-full break-words;
                 }
             }
         }
@@ -383,12 +384,49 @@ body {
     #home {
         @apply relative z-0 max-sm:hidden;
 
+        .folder-ico {
+            @apply relative inline-flex cursor-pointer;
+        }
+
+        /* Wide logo sitting on a folder face. */
+        .folder-stack {
+            @apply relative grid place-items-center size-16;
+
+            .folder-bg {
+                @apply size-16 object-contain p-0;
+            }
+
+            .folder-logo {
+                @apply absolute object-contain;
+                left: 50%;
+                top: 58%;
+                transform: translate(-50%, -50%);
+                max-width: 80%;
+                max-height: 42%;
+            }
+        }
+
+        .folder-badges {
+            @apply absolute -right-1 -bottom-1 flex gap-0.5;
+        }
+
+        .folder-badge {
+            @apply grid place-items-center rounded-full text-white border border-white/80 shadow;
+            width: 18px;
+            height: 18px;
+        }
+
         ul {
             li {
                 @apply absolute z-0 select-none flex items-center flex-col;
 
                 img {
-                    @apply group-hover:bg-gray-950/10 p-1 rounded-md;
+                    @apply size-16 object-contain object-center group-hover:bg-gray-950/10 p-1 rounded-md;
+                }
+
+                /* Mobile-app logos read like rounded phone app icons. */
+                img.mob {
+                    @apply object-cover p-0 rounded-2xl;
                 }
 
                 p {

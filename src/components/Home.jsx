@@ -5,69 +5,35 @@ import {Draggable} from "gsap/Draggable";
 
 // Internal
 import {locations} from '#constants'
+import {TYPE_META, typeList} from '#constants/projectTypes.js'
 import useWindowStore from "#store/window.js";
 import useLocationStore from "#store/location.js";
 
-const projects = locations.work.children ?? [];
+// Desktop "home" icons come from the same project list as the mobile home, so
+// the two stay in sync. Only projects with `desktop_home !== false` are shown.
+const projects = (locations.workhome.children ?? []).filter((p) => p.desktop_home !== false);
 
-// Convert a position string like "top-12 left-16" into an inline style object.
-const parsePositionToStyle = (pos = "") => {
-    const style = {};
-    const tokens = String(pos).split(/\s+/).filter(Boolean);
+// Lay the icons out on a tidy grid, but nudge each one a little so the desktop
+// feels hand-arranged rather than robotic ("orderly, but not soo orderly").
+// Jitter is derived from the project id so it's stable across renders.
+const COLS = 6;
+const COL_GAP = 220;   // px between columns
+const ROW_GAP = 175;   // px between rows
+const ORIGIN_X = 40;
+const ORIGIN_Y = 36;
 
-    // Tailwind-like spacing map (rem values)
-    const spacing = {
-        0: 0,
-        0.5: 0.125,
-        1: 0.25,
-        1.5: 0.375,
-        2: 0.5,
-        2.5: 0.625,
-        3: 0.75,
-        3.5: 0.875,
-        4: 1,
-        5: 1.25,
-        6: 1.5,
-        8: 2,
-        10: 2.5,
-        12: 3,
-        16: 4,
-        20: 5,
-        24: 6,
-        28: 7,
-        32: 8,
-        36: 9,
-        40: 10,
-        44: 11,
-        48: 12,
-        52: 13,
-        56: 14,
-        60: 15,
-        64: 16,
-        72: 18,
-        80: 20,
-        96: 24,
+const homeStyle = (project, index) => {
+    const col = index % COLS;
+    const row = Math.floor(index / COLS);
+    const id = Number(project.id) || index;
+    const jitterX = ((id * 37) % 30) - 15; // -15..14
+    const jitterY = ((id * 53) % 26) - 13; // -13..12
+    return {
+        left: `${ORIGIN_X + col * COL_GAP + jitterX}px`,
+        top: `${ORIGIN_Y + row * ROW_GAP + jitterY}px`,
     };
-
-    tokens.forEach((t) => {
-        // match e.g. top-12, left-5, right-24
-        const m = t.match(/^(top|left|right|bottom)-([0-9.]+)$/);
-        if (!m) return;
-        const dir = m[1];
-        const val = Number(m[2]);
-
-        // If value matches known spacing, convert to rem->px, else treat as px
-        if (Object.prototype.hasOwnProperty.call(spacing, val)) {
-            const rem = spacing[val];
-            style[dir] = `${rem * 16}px`;
-        } else {
-            // fallback: treat as px
-            style[dir] = `${val}px`;
-        }
-    });
-
-    return style;
 };
+
 const Home = () => {
     const {setActiveLocation} = useLocationStore();
     const {openWindow} = useWindowStore();
@@ -84,18 +50,41 @@ const Home = () => {
     // Render
     return <section id="home">
         <ul>
-            {projects.map((project) => (
+            {projects.map((project, index) => {
+                const types = typeList(project.project_type)
+                return (
                     <li key={project.id}
                         className={clsx("group folder")}
-                        style={parsePositionToStyle(project.position)}
+                        style={homeStyle(project, index)}
                     >
-                        <img src="/images/folder.png" alt={project.name}
-                             onClick={() => handleOpenProjectFinder(project)}
-                        />
+                        <span className="folder-ico" onClick={() => handleOpenProjectFinder(project)}>
+                            {project.iconOnFolder && project.appIcon ? (
+                                <span className="folder-stack">
+                                    <img src={project.folderImg || "/images/folder.png"} alt="" className="folder-bg"/>
+                                    <img src={project.appIcon} alt={project.name} className="folder-logo"/>
+                                </span>
+                            ) : (
+                                <img src={project.appIcon || "/images/folder.png"} alt={project.name}
+                                     className={types.includes('mob_app') ? 'mob' : undefined}
+                                />
+                            )}
+                            {types.length > 0 && (
+                                <span className="folder-badges">
+                                    {types.map((t) => {
+                                        const {Icon, bg} = TYPE_META[t]
+                                        return (
+                                            <span key={t} className="folder-badge" style={{background: bg}}>
+                                                <Icon size={11}/>
+                                            </span>
+                                        )
+                                    })}
+                                </span>
+                            )}
+                        </span>
                         <p>{project.name}</p>
                     </li>
                 )
-            )}
+            })}
         </ul>
     </section>
 }

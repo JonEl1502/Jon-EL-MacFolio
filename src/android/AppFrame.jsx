@@ -12,6 +12,9 @@ import SkillsApp   from '#android/apps/SkillsApp.jsx'
 import PortfolioApp from '#android/apps/PortfolioApp.jsx'
 import AboutApp    from '#android/apps/AboutApp.jsx'
 import SocialsApp  from '#android/apps/SocialsApp.jsx'
+import ExpertiseApp  from '#android/apps/ExpertiseApp.jsx'
+import TimelineApp   from '#android/apps/TimelineApp.jsx'
+import OtherWorksApp from '#android/apps/OtherWorksApp.jsx'
 
 const APPS = {
     'project':           ProjectApp,
@@ -23,6 +26,9 @@ const APPS = {
     'system-portfolio':  PortfolioApp,
     'system-about':      AboutApp,
     'system-socials':    SocialsApp,
+    'system-expertise':  ExpertiseApp,
+    'system-timeline':   TimelineApp,
+    'system-otherworks': OtherWorksApp,
 }
 
 const TITLES = {
@@ -34,6 +40,9 @@ const TITLES = {
     'system-portfolio': 'Portfolio',
     'system-about':     'About Me',
     'system-socials':   'Socials',
+    'system-expertise':  'Expertise',
+    'system-timeline':   'Timeline',
+    'system-otherworks': 'Other Works',
 }
 
 const AppFrame = () => {
