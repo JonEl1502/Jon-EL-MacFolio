@@ -400,6 +400,7 @@
 .aos-project-hero img { width: 100%; display: block; }
 .aos-project-info { padding: 20px 18px 32px; }
 .aos-project-info h2 { margin: 0 0 6px; font-size: 22px; font-weight: 700; }
+.aos-project-owner { margin: 0 0 8px; font-size: 13px; font-weight: 500; color: #7c9eff; }
 .aos-project-info h3 { margin: 24px 0 10px; font-size: 14px; color: #aaa; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 .aos-project-info p { margin: 0 0 12px; line-height: 1.55; color: #ddd; font-size: 14px; }
 .aos-cta {

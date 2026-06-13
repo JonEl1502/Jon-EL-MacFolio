@@ -102,7 +102,7 @@ const projectApps = (locations.workhome?.children || []).filter((p) => p.desktop
         icon,
         iconFit,
         types,
-        data: {name: p.name, url, screenshots, description},
+        data: {name: p.name, url, screenshots, description, owner: p.owner},
     }
 })
 

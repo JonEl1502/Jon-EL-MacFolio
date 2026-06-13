@@ -2,7 +2,7 @@ import {ExternalLink} from 'lucide-react'
 
 const ProjectApp = ({data}) => {
     if (!data) return null
-    const {name, url, screenshots = [], description = []} = data
+    const {name, url, screenshots = [], description = [], owner} = data
 
     return (
         <article className="aos-project">
@@ -14,6 +14,11 @@ const ProjectApp = ({data}) => {
 
             <div className="aos-project-info">
                 <h2>{name}</h2>
+                {owner && (
+                    <p className="aos-project-owner">
+                        {owner === 'Personal' ? 'Personal project' : `Company · ${owner}`}
+                    </p>
+                )}
                 {url && (
                     <a className="aos-cta" href={url} target="_blank" rel="noreferrer">
                         Visit live site <ExternalLink size={14}/>

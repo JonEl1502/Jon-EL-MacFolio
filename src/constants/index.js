@@ -814,6 +814,7 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-5 left-5",
+            owner: "Tribe All Crochets",
             // desktop_home: set to false to hide this project from the desktop/mobile home.
             desktop_home: true,
             project_type: "web_app",
@@ -869,6 +870,7 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-53 left-5",
+            owner: "VertiGrow",
             desktop_home: true,
             project_type: "web_app",
             children: [
@@ -923,6 +925,7 @@ const WORK_LOCATION2 = {
             icon: "/images/folder2.png",
             kind: "folder",
             position: "top-93 right-15",
+            owner: "Shower to Shower",
             desktop_home: true,
             project_type: "web_app",
             children: [
@@ -992,6 +995,7 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-85 left-5",
+            owner: "Westland Paws Clinic",
             desktop_home: true,
             project_type: "web_app",
             children: [
@@ -1048,6 +1052,7 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-5 left-70",
+            owner: "Wanzau, Odhiambo & Associates Advocates",
             desktop_home: true,
             project_type: "web_app",
             children: [
@@ -1120,6 +1125,7 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-33 left-70",
+            owner: "Meat Lovers Restaurant",
             desktop_home: true,
             project_type: "web_app",
             children: [
@@ -1183,6 +1189,7 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-72 left-70",
+            owner: "Crystal Vets",
             desktop_home: true,
             project_type: "web_app",
             children: [
@@ -1245,6 +1252,7 @@ const WORK_LOCATION2 = {
             appIcon: "/images/mossbets-1.png",
             kind: "folder",
             position: "top-130 left-70",
+            owner: "MossBerg Solutions",
             desktop_home: true,
             project_type: "mob_app",
             children: [
@@ -1289,6 +1297,7 @@ const WORK_LOCATION2 = {
             appIcon: "/macbook.png",
             kind: "folder",
             position: "top-170 left-5",
+            owner: "Personal",
             desktop_home: true,
             project_type: "web_app",
             children: [
@@ -1364,6 +1373,7 @@ const WORK_LOCATION2 = {
             appIcon: "/images/fleeks-favicon.png",
             kind: "folder",
             position: "top-210 left-5",
+            owner: "Liden Co LTD",
             desktop_home: true,
             project_type: "web_app",
             children: [
@@ -1501,6 +1511,7 @@ const WORK_LOCATION2 = {
             folderImg: "/images/folder-yellow.png",
             kind: "folder",
             position: "top-210 left-70",
+            owner: "MossBerg Solutions",
             desktop_home: true,
             project_type: ["web_app", "be_app"],
             children: [
@@ -1639,6 +1650,7 @@ const WORK_LOCATION2 = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-250 left-5",
+            owner: "MossBerg Solutions",
             desktop_home: true,
             project_type: ["web_app", "be_app"],
             children: [
