@@ -18,16 +18,18 @@ const AboutApp = () => {
             </button>
             <h2>Hi, I'm John</h2>
             <p>
-                Full-stack engineer based in Nairobi. I build polished web and mobile
-                products end-to-end — from API and database design to interactive
-                front-end experiences. Recent work spans e-commerce platforms,
-                hydroponic farming dashboards, and veterinary practice software.
+                Full-stack engineer based in Nairobi with 8+ years building mobile
+                and web products end-to-end — native Android (Kotlin/Java), Flutter,
+                React and Vue, backed by Node.js, Phalcon PHP and Go. My work spans
+                fintech, gaming, transport and enterprise systems, with a focus on
+                UI/UX, performance, and secure API integrations.
             </p>
             <p>
-                On this site you can browse my projects, read my articles, see my
-                stack, or grab my résumé. You're currently in the Android-style
-                phone UI — switch to <code>/desktop</code> for the full
-                macOS-style experience.
+                On this site you can browse my projects and expertise, scan my
+                timeline, read my articles, see my stack, or grab my résumé. The whole
+                thing adapts to your device — this is the Android-style mobile view;
+                open it on a computer (or go to <code>/desktop</code>) for the full
+                macOS-style desktop experience.
             </p>
 
             {open && (

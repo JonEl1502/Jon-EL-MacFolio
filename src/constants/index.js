@@ -285,29 +285,53 @@ const expertise = [
 const timeline = [
     {
         id: 1,
-        period: "2024 — Present",
-        role: "Role / Title here",
-        org: "Company or Client",
+        period: "Apr 2022 — Present",
+        role: "Senior Frontend Engineer · Mobile & Web",
+        org: "Liden Company Limited · Nairobi",
         summary:
-            "Placeholder — describe what you do here: the product, the stack, and the impact. One or two sentences.",
+            "Lead frontend, mobile and web engineer across high-traffic consumer and enterprise platforms — SokoPro (sports news & subscriptions), Tiko254/Zuizi (QR ticket verification), Bids Moto (real-time bidding) and MossBets App — plus Wazibet/Sportika, SaloPlus, internal dashboards, a fast PickABox USSD flow, and the Micro Finance CIC app.",
     },
     {
         id: 2,
-        period: "2022 — 2024",
-        role: "Role / Title here",
-        org: "Company or Client",
+        period: "Apr 2021 — Mar 2022",
+        role: "Mobile Developer",
+        org: "SMEs Tech Innovation (formerly Legitimate Technology) · Nairobi",
         summary:
-            "Placeholder — a previous chapter. Swap in the real role, dates, and a short summary of what you shipped.",
+            "Built Edu-Pesa (school pocket-money with biometric fingerprint withdrawal terminals), Sqwodi (geo-location payments via Google Maps), and Daride (real-time transport tracking with Apache Kafka & RabbitMQ event streaming).",
     },
     {
         id: 3,
-        period: "2020 — 2022",
-        role: "Role / Title here",
-        org: "Company or Client",
+        period: "Apr 2020 — Mar 2021",
+        role: "Mobile Developer",
+        org: "Legitimate Technology · Nairobi",
         summary:
-            "Placeholder — an earlier role. Keep these newest-first so the timeline reads top to bottom.",
+            "Built a wholesale e-commerce platform (group purchasing & distribution), the Abudu Church App (donations, scheduling, bookings), and PayBill Manager (consolidated paybill accounting for small businesses).",
     },
-    // EDIT ME: add earlier entries here, same shape { id, period, role, org, summary }.
+    {
+        id: 4,
+        period: "2013 — Present",
+        role: "Mobile Game Developer (Independent)",
+        org: "Self-employed",
+        summary:
+            "Independently published Android & iOS games with Unity 3D, Construct 2/3, GameSalad and Cocos2DX — plus betting/tipster apps, business systems, Unimeat (meat-market POS), a veterinary clinic ERP, and various promotional sites.",
+    },
+    {
+        id: 5,
+        period: "2016 — 2019",
+        role: "BSc, Information Technology",
+        org: "Jomo Kenyatta University of Agriculture and Technology (JKUAT)",
+        summary:
+            "Bachelor of Science in Information Technology.",
+    },
+    {
+        id: 6,
+        period: "2014 — 2015",
+        role: "Diploma, Information Technology",
+        org: "Zetech College (JKUAT Program)",
+        summary:
+            "Diploma in Information Technology.",
+    },
+    // EDIT ME: dates/titles drafted from the CV — adjust anything that's off.
 ];
 
 // ---------------------------------------------------------------------------
