@@ -1688,7 +1688,7 @@ const WORK_LOCATION2 = {
             appIcon: "/images/booky-logo.webp",
             kind: "folder",
             position: "top-290 left-5",
-            owner: "Personal",
+            owner: "Rekodi Labs",
             desktop_home: true,
             project_type: "mob_app",
             children: [
