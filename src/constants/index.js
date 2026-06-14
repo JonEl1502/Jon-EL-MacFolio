@@ -1192,7 +1192,7 @@ const WORK_LOCATION2 = {
             kind: "folder",
             position: "top-72 left-70",
             owner: "Crystal Vets",
-            appIcon: "/images/crystalvets-favicon.webp",
+            appIcon: "/images/crystalvets-icon.webp",
             desktop_home: true,
             project_type: "web_app",
             children: [
