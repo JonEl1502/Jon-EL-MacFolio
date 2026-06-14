@@ -250,7 +250,7 @@ const expertise = [
         blurb:
             "End-to-end guidance through the Dun & Bradstreet D-U-N-S registration — preparing business details, submitting the application, and following through to issuance so the number is ready for app-store, grant, and vendor onboarding requirements.",
         // Placeholder images — swap these SVGs for real screenshots when ready.
-        screenshots: ["/images/dun-no-1.svg", "/images/dun-no-2.svg"],
+        screenshots: ["/images/dun-1.webp", "/images/dun-2.webp"],
     },
     {
         id: 2,
@@ -815,6 +815,7 @@ const WORK_LOCATION2 = {
             kind: "folder",
             position: "top-5 left-5",
             owner: "Tribe All Crochets",
+            appIcon: "/images/tribeall-yarn.webp",
             // desktop_home: set to false to hide this project from the desktop/mobile home.
             desktop_home: true,
             project_type: "web_app",
@@ -1053,6 +1054,7 @@ const WORK_LOCATION2 = {
             kind: "folder",
             position: "top-5 left-70",
             owner: "Wanzau, Odhiambo & Associates Advocates",
+            appIcon: "/images/woadvocates-favicon.webp",
             desktop_home: true,
             project_type: "web_app",
             children: [
@@ -1190,6 +1192,7 @@ const WORK_LOCATION2 = {
             kind: "folder",
             position: "top-72 left-70",
             owner: "Crystal Vets",
+            appIcon: "/images/crystalvets-favicon.webp",
             desktop_home: true,
             project_type: "web_app",
             children: [
