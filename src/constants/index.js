@@ -264,7 +264,7 @@ const expertise = [
         title: "Design",
         blurb:
             "Interface and visual design — layout, typography, color systems, and design systems that keep products consistent and on-brand. Case in point: Booky, a library-styled reading app whose warm, editorial look I designed end to end (see the Booky project).",
-        screenshots: ["/images/booky-design-1.webp", "/images/booky-design-2.webp", "/images/run-design.webp"],
+        screenshots: ["/images/booky-design-1.webp", "/images/booky-design-2.webp", "/images/run-design.webp", "/images/vethubcore-design.webp"],
     },
     {
         id: 4,
