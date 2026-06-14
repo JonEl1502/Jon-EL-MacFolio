@@ -286,7 +286,7 @@ const timeline = [
     {
         id: 1,
         period: "Apr 2022 — Present",
-        role: "Senior Frontend Engineer · Mobile & Web",
+        role: "Frontend Engineer · Mobile & Web",
         org: "Liden Company Limited · Nairobi",
         summary:
             "Lead frontend, mobile and web engineer across high-traffic consumer and enterprise platforms — SokoPro (sports news & subscriptions), Tiko254/Zuizi (QR ticket verification), Bids Moto (real-time bidding) and MossBets App — plus Wazibet/Sportika, SaloPlus, internal dashboards, a fast PickABox USSD flow, and the Micro Finance CIC app.",
