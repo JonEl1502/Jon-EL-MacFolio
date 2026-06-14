@@ -256,8 +256,8 @@ const expertise = [
         id: 2,
         title: "Search Engine Optimization (SEO)",
         blurb:
-            "On-page and technical SEO: semantic markup, metadata, sitemaps, Core Web Vitals, and content structure that helps sites rank and load fast.",
-        screenshots: ["/images/seo-1.svg"],
+            "On-page and technical SEO: semantic markup, metadata, sitemaps, Core Web Vitals, and content structure that helps sites rank and load fast. Case in point — this very portfolio pulled 5,000+ requests from around the world in about 10 days (Cloudflare, Jun 5–14). If a simple portfolio can have good SEO, so can yours 👉",
+        screenshots: ["/images/seo-1.webp"],
     },
     {
         id: 3,
