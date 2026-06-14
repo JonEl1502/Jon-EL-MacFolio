@@ -270,8 +270,8 @@ const expertise = [
         id: 4,
         title: "Prototyping",
         blurb:
-            "Rapid interactive prototypes that validate ideas and flows before a line of production code is written.",
-        screenshots: ["/images/prototype-1.svg"],
+            "Rapid interactive prototypes that validate ideas and flows before a line of production code is written. Case in point: a doodle-themed arcade game prototype (Doodle G) — full screen flows, a roster of 18 characters, and 12 'Alien Worlds' — all mapped out before any code.",
+        screenshots: ["/images/proto-1.webp", "/images/proto-2.webp"],
     },
     // EDIT ME: add more expertise areas here, same shape
     // { id, title, blurb, screenshots: [..urls] }. `screenshots` is optional.
