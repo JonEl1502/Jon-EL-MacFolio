@@ -264,14 +264,14 @@ const expertise = [
         title: "Design",
         blurb:
             "Interface and visual design — layout, typography, color systems, and design systems that keep products consistent and on-brand. Case in point: Booky, a library-styled reading app whose warm, editorial look I designed end to end (see the Booky project).",
-        screenshots: ["/images/booky-design-1.webp", "/images/booky-design-2.webp"],
+        screenshots: ["/images/booky-design-1.webp", "/images/booky-design-2.webp", "/images/run-design.webp"],
     },
     {
         id: 4,
         title: "Prototyping",
         blurb:
             "Rapid interactive prototypes that validate ideas and flows before a line of production code is written. Case in point: a doodle-themed arcade game prototype (Doodle G) — full screen flows, a roster of 18 characters, and 12 'Alien Worlds' — all mapped out before any code.",
-        screenshots: ["/images/proto-1.webp", "/images/proto-2.webp"],
+        screenshots: ["/images/proto-1.webp", "/images/proto-2.webp", "/images/run-design.webp"],
     },
     // EDIT ME: add more expertise areas here, same shape
     // { id, title, blurb, screenshots: [..urls] }. `screenshots` is optional.
