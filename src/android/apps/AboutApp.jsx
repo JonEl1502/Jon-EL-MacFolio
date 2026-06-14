@@ -18,7 +18,7 @@ const AboutApp = () => {
             </button>
             <h2>Hi, I'm John</h2>
             <p>
-                Full-stack engineer based in Nairobi with 8+ years building mobile
+                Full-stack engineer based in Nairobi with 12+ years building mobile
                 and web products end-to-end — native Android (Kotlin/Java), Flutter,
                 React and Vue, backed by Node.js, Phalcon PHP and Go. My work spans
                 fintech, gaming, transport and enterprise systems, with a focus on
