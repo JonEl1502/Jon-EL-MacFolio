@@ -315,22 +315,6 @@ const timeline = [
         summary:
             "Independently published Android & iOS games with Unity 3D, Construct 2/3, GameSalad and Cocos2DX — plus betting/tipster apps, business systems, Unimeat (meat-market POS), a veterinary clinic ERP, and various promotional sites.",
     },
-    {
-        id: 5,
-        period: "2016 — 2019",
-        role: "BSc, Information Technology",
-        org: "Jomo Kenyatta University of Agriculture and Technology (JKUAT)",
-        summary:
-            "Bachelor of Science in Information Technology.",
-    },
-    {
-        id: 6,
-        period: "2014 — 2015",
-        role: "Diploma, Information Technology",
-        org: "Zetech College (JKUAT Program)",
-        summary:
-            "Diploma in Information Technology.",
-    },
     // EDIT ME: dates/titles drafted from the CV — adjust anything that's off.
 ];
 
