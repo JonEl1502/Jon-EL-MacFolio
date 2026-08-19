@@ -3,8 +3,9 @@ import {X} from 'lucide-react'
 
 const AVATAR = '/images/jonel-1.jpg'
 
-const AboutApp = () => {
+const AboutApp = ({shell = 'android'}) => {
     const [open, setOpen] = useState(false)
+    const viewName = shell === 'ipados' ? 'iPadOS-style touch view' : 'Android-style mobile view'
 
     return (
         <article className="aos-about">
@@ -27,9 +28,9 @@ const AboutApp = () => {
             <p>
                 On this site you can browse my projects and expertise, scan my
                 timeline, read my articles, see my stack, or grab my résumé. The whole
-                thing adapts to your device — this is the Android-style mobile view;
-                open it on a computer (or go to <code>/desktop</code>) for the full
-                macOS-style desktop experience.
+                thing adapts to your device — this is the {viewName}; open it on a
+                computer (or go to <code>/desktop</code>) for the full macOS-style
+                desktop experience.
             </p>
 
             {open && (

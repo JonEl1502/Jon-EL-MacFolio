@@ -15,6 +15,7 @@ export default defineConfig({
             '#windows': resolve(dirname(fileURLToPath(import.meta.url)), 'src/windows'),
             '#desktop': resolve(dirname(fileURLToPath(import.meta.url)), 'src/desktop'),
             '#android': resolve(dirname(fileURLToPath(import.meta.url)), 'src/android'),
+            '#ipados': resolve(dirname(fileURLToPath(import.meta.url)), 'src/ipados'),
         },
     },
 })
