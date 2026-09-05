@@ -7,7 +7,12 @@ body {
     width: 100dvw;
     overflow: hidden;
     height: 100dvh;
-    background-image: url("../public/images/wallpaper1.png");
+    /* Wallpaper: an SVG mesh gradient rather than a raster, so it stays crisp
+       at any display size and carries the same navy/indigo palette as the
+       Android and iPadOS shells. Alternates sit beside it in public/images:
+       wallpaper-graphite.svg (neutral charcoal) and wallpaper-dusk.svg (quiet plum). */
+    background-color: #0b1030;
+    background-image: url("../public/images/wallpaper-midnight.svg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
