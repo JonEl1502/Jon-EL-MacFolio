@@ -8,7 +8,7 @@ import AppIcon from '#android/AppIcon.jsx'
 // Row 1 = three "intro" system apps; row 2 = three named project apps.
 const PAGE_ONE_IDS = [
     'about', 'articles', 'skills',
-    'project-12', 'project-11', 'project-9', // MossBets · Crystal Vets · WOAdvocates
+    'project-12', 'project-11', 'project-9', // MossBets · SanaPets · WOAdvocates
 ]
 
 const formatTime = (d) =>

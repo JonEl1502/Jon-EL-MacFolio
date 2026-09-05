@@ -8,7 +8,7 @@ import {ClockWidget, WeatherWidget, FeaturedWidget} from '#ipados/Widgets.jsx'
 // flagship projects. Everything else flows onto page 2.
 const PAGE_ONE_IDS = [
     'about', 'articles', 'skills',
-    'project-12', 'project-11', 'project-9', // MossBets · Crystal Vets · WOAdvocates
+    'project-12', 'project-11', 'project-9', // MossBets · SanaPets · WOAdvocates
 ]
 const FEATURED_ID = 'project-12'
 
