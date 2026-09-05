@@ -516,11 +516,11 @@ const WORK_LOCATION = {
                 },
                 {
                     id: 702,
-                    name: "shower-to-shower.co.ke",
+                    name: "showertoshower.co.ke",
                     icon: "/images/safari.png",
                     kind: "file",
                     fileType: "url",
-                    href: "https://shower-to-shower.vercel.app/",
+                    href: "https://showertoshower.co.ke/",
                     position: "top-6 right-20",
                 },
                 {
@@ -990,11 +990,11 @@ const WORK_LOCATION2 = {
                 },
                 {
                     id: 702,
-                    name: "shower-to-shower.co.ke",
+                    name: "showertoshower.co.ke",
                     icon: "/images/safari.png",
                     kind: "file",
                     fileType: "url",
-                    href: "https://shower-to-shower.vercel.app/",
+                    href: "https://showertoshower.co.ke/",
                     position: "top-6 right-20",
                 },
                 {
