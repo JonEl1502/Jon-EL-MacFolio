@@ -1044,7 +1044,7 @@ const WORK_LOCATION2 = {
             kind: "folder",
             position: "top-85 left-5",
             owner: "Westlands Paws Clinic",
-            appIcon: "/images/westlandspaws-icon.webp",
+            appIcon: "/images/westlandspaws-icon.svg",
             desktop_home: true,
             project_type: "web_app",
             children: [

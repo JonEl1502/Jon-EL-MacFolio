@@ -46,7 +46,7 @@ const Resume = () => {
                     </a>
                 </div>
             </div>
-            <div className="overflow-auto h-full">
+            <div className="overflow-auto flex-1 min-h-0">
                 <Document 
                     file="files/JohnKabiuMwauraCV.pdf"
                     onLoadSuccess={({numPages}) => setNumPages(numPages)}>

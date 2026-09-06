@@ -26,15 +26,18 @@ const useWindowStore = create(
                 // its position hasn't been set yet). Subsequent opens preserve
                 // wherever the user last dragged it to.
                 if (!win.position) {
+                    const vw = typeof window !== 'undefined' ? window.innerWidth  : 1280;
+                    const vh = typeof window !== 'undefined' ? window.innerHeight : 800;
+
                     const sizes = {
                         finder:  { w: 900, h: 600 },
                         imgfile: { w: 720, h: 400 },
+                        // The resume is a PDF page capped at 80vh by #resume,
+                        // so its height is a share of the viewport, not fixed.
+                        resume:  { w: 560, h: Math.round(vh * 0.8) },
                     };
                     const prefix = windowKey.startsWith('imgfile_') ? 'imgfile' : windowKey;
                     const { w, h } = sizes[prefix] || { w: 700, h: 500 };
-
-                    const vw = typeof window !== 'undefined' ? window.innerWidth  : 1280;
-                    const vh = typeof window !== 'undefined' ? window.innerHeight : 800;
 
                     let cx = Math.max(0, Math.round((vw - w) / 2));
                     let cy = Math.max(28, Math.round((vh - h) / 2)); // leave room for top menubar
@@ -46,6 +49,10 @@ const useWindowStore = create(
                         cx += openImageWindows * 30;
                         cy += openImageWindows * 30;
                     }
+                    // Whatever the size estimate, keep the window on screen: never
+                    // start it so low that its body hangs off the bottom.
+                    cx = Math.min(cx, Math.max(0, vw - 120));
+                    cy = Math.min(cy, Math.max(28, vh - 120));
                     win.position = { x: cx, y: cy };
                 }
 
