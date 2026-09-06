@@ -98,7 +98,10 @@ const Welcome = () => {
                 {renderText("Hey, I'm John, and welcome to my",
                     'text-3xl font-georama', 100)}
             </p>
-            <h1 ref={titleRef} className="mt-7">
+            {/* The visible word is animated per character, so the heading carries
+                its full meaning as an accessible name instead. */}
+            <h1 ref={titleRef} className="mt-7"
+                aria-label="John Kabiu Mwaura — fullstack mobile and web engineer portfolio">
                 {renderText("portfolio",
                     'text-9xl italic font-georama')}
             </h1>

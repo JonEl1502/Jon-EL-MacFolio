@@ -2,12 +2,104 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/macbook.png" />
+    <link rel="icon" type="image/png" href="/macbook.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jon-37-Macfolio</title>
+
+    <title>John Kabiu Mwaura — Fullstack Mobile &amp; Web Engineer in Nairobi</title>
+    <meta
+      name="description"
+      content="Portfolio of John Kabiu Mwaura, a fullstack engineer in Nairobi with 12+ years building Android, Flutter, React and Vue products — presented as a macOS desktop you can click through."
+    />
+    <link rel="canonical" href="https://kabiujohn.com/" />
+    <meta name="theme-color" content="#0b1030" />
+    <meta name="author" content="John Kabiu Mwaura" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jon-EL's Macfolio" />
+    <meta property="og:url" content="https://kabiujohn.com/" />
+    <meta property="og:title" content="John Kabiu Mwaura — Fullstack Mobile &amp; Web Engineer in Nairobi" />
+    <meta
+      property="og:description"
+      content="A fullstack engineer's portfolio built as a macOS desktop: open the folders to read the projects, from veterinary clinics to betting platforms and messaging dashboards."
+    />
+    <meta property="og:image" content="https://kabiujohn.com/images/macfolio-1.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="John Kabiu Mwaura — Fullstack Mobile &amp; Web Engineer in Nairobi" />
+    <meta
+      name="twitter:description"
+      content="A fullstack engineer's portfolio built as a macOS desktop: open the folders to read the projects."
+    />
+    <meta name="twitter:image" content="https://kabiujohn.com/images/macfolio-1.webp" />
   </head>
   <body>
     <div id="root"></div>
+
+    <!--
+      The desktop shell is rendered by React, so a crawler that does not execute
+      JavaScript sees an empty page — no heading, no words, no links. This is the
+      no-JavaScript version of the same content: it states who the site belongs
+      to, what is on it, and links to the pages and projects it describes.
+    -->
+    <noscript>
+      <main>
+        <h1>John Kabiu Mwaura — Fullstack Mobile &amp; Web Engineer</h1>
+        <p>
+          I am a fullstack engineer in Nairobi, Kenya, with 12+ years building mobile and web
+          products: native Android (Java/Kotlin) and Flutter on the mobile side, React, Next.js and
+          Vue on the web, with Node.js, Phalcon PHP and GoLang behind them. This portfolio is
+          normally a clickable macOS desktop, which needs JavaScript; what follows is the same
+          content as plain text.
+        </p>
+
+        <h2>Ways to view this portfolio</h2>
+        <ul>
+          <li><a href="/desktop">Desktop (macOS) version of the portfolio</a></li>
+          <li><a href="/android">Android version of the portfolio</a></li>
+          <li><a href="/ipad">iPad / iOS version of the portfolio</a></li>
+        </ul>
+
+        <h2>Selected work</h2>
+        <ul>
+          <li>
+            <a href="https://www.sanapetsveterinaryclinic.com/">SanaPets Vet Clinic</a> — a Nairobi
+            veterinary site with WhatsApp-backed appointment booking, per-service pages and a
+            filterable product shop.
+          </li>
+          <li>
+            <a href="https://westlandspawsclinic.vercel.app/">Westlands Paws Clinic</a> — an
+            emergency-first clinic site on Mpaka Road, with an indexed services page and a single
+            booking form confirmed over WhatsApp.
+          </li>
+          <li>
+            <a href="https://showertoshower.co.ke/">Shower to Shower Kenya</a> — a direct-to-consumer
+            store for roll-on deodorant, with same-day Nairobi delivery.
+          </li>
+          <li>
+            <a href="https://tribe-all-crochets.vercel.app/">Tribe All Crochets</a> — an
+            e-commerce storefront for handcrafted crochet work by Kenyan artisans.
+          </li>
+          <li>
+            <a href="https://woadvocates.vercel.app/">Wanzau, Odhiambo &amp; Associates Advocates</a>
+            — a law-firm website with practice areas and a blog.
+          </li>
+          <li>
+            <a href="https://play.google.com/store/apps/details?id=com.mossberg.mossbets">
+              MossBets
+            </a>
+            — a Flutter sports-betting app on Google Play, with a live odds board, in-play match
+            centre and a persistent bet slip.
+          </li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>
+          Email <a href="mailto:johnkabiumwaura@gmail.com">johnkabiumwaura@gmail.com</a>, or call
+          <a href="tel:+254714919776">+254 714 919 776</a>. My CV is available as a
+          <a href="/files/JohnKabiuMwauraCV.pdf">PDF résumé</a>.
+        </p>
+      </main>
+    </noscript>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
