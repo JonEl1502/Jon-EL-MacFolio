@@ -71,8 +71,29 @@ const Contact = () => {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-center">
-                        <img src="/images/jonel-1.jpg" alt="Profile" className="w-full h-full object-cover rounded-lg" />
+                    <div className="flex flex-col">
+                        <img src="/images/jonel-1.jpg" alt="Profile" className="w-full h-56 object-cover rounded-lg" />
+
+                        <div className="grid grid-cols-2 gap-2 mt-3">
+                            <a
+                                href="https://kabiujohn.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col items-center gap-1 bg-white border border-gray-200 rounded-lg p-2 hover:scale-105 transition-transform"
+                            >
+                                <img src="/images/qr-portfolio.png" alt="QR code linking to kabiujohn.com" className="w-16 h-16" />
+                                <span className="text-[10px] font-semibold text-gray-700">Portfolio</span>
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/john-kabiu-mwaura/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col items-center gap-1 bg-white border border-gray-200 rounded-lg p-2 hover:scale-105 transition-transform"
+                            >
+                                <img src="/images/qr-linkedin.png" alt="QR code linking to LinkedIn profile" className="w-16 h-16" />
+                                <span className="text-[10px] font-semibold text-gray-700">LinkedIn</span>
+                            </a>
+                        </div>
 
                         {showDialog && (
                             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setShowDialog(false)}>

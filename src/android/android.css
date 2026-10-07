@@ -485,6 +485,14 @@
 
 .aos-contact h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin: 24px 0 10px; }
 
+.aos-qr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0 0 8px; }
+.aos-qr-card {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    padding: 14px; background: #fff; border-radius: 16px; text-decoration: none;
+}
+.aos-qr-card img { width: 100%; max-width: 120px; aspect-ratio: 1; display: block; }
+.aos-qr-card span { color: #1c1b22; font-size: 12px; font-weight: 600; }
+
 /* ---------- Gallery app ---------- */
 .aos-gallery-grid {
     display: grid;

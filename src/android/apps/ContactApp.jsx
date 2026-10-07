@@ -39,6 +39,18 @@ const ContactApp = () => {
                 ))}
             </ul>
 
+            <h3>Scan to connect</h3>
+            <div className="aos-qr-grid">
+                <a className="aos-qr-card" href="https://kabiujohn.com" target="_blank" rel="noreferrer">
+                    <img src="/images/qr-portfolio.png" alt="QR code linking to kabiujohn.com"/>
+                    <span>Portfolio</span>
+                </a>
+                <a className="aos-qr-card" href="https://www.linkedin.com/in/john-kabiu-mwaura/" target="_blank" rel="noreferrer">
+                    <img src="/images/qr-linkedin.png" alt="QR code linking to LinkedIn profile"/>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+
             {open && (
                 <div className="aos-lightbox" onClick={() => setOpen(false)}>
                     <button type="button" aria-label="Close" className="aos-lightbox-close">
